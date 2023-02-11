@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: Wilk;
+    src: url(../src/assets/Wilkysta.ttf)
+}
+
+@font-face {
+    font-family: Pop;
+    src: url(../src/assets/fonts/Poppins/Poppins-Light.ttf);
+}
+
+*{
+    font-family: Pop;
+    font-weight: 500;
+    scroll-behavior: smooth;
+}
+
+.para {
+font-family: Pop;
+}
