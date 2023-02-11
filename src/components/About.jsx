@@ -32,7 +32,7 @@ const About = () => {
 
         <div className={`flex ${styles.paddingX} `} >
             <div className={` flex-0.5 xxs:pt-6 pb-6 ${styles.flexCenter}`}>
-               <img src="../assets/P4.png" className={`${style.imgD}`} alt="" />
+               <img src='../src/assets/P4.png'  className={`${style.imgD}`} alt="" />
             </div>
             <div className={` ${styles.flexCenter} ${style.divS} `}>
                 <h2 className={`${style.h2}`} >FRONT-END WEB DEVELOPER | WEB DESIGNER | USER-INTERFACE & USER-EXPERIENCE | WORKING 
