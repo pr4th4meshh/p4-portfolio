@@ -21,6 +21,7 @@ const Projects = () => {
             </ul>
         </div>
     </section>
+    
   )
 }
 

@@ -9,7 +9,7 @@ import Projects from './components/Projects'
 import ScrollButton from './components/ScrollButton'
 import './index.css'
 import { useState, useEffect } from 'react'
-import 'animate.css'
+import 'animate.css';
 
 function App() {
   const [loading, setLoading] = useState(true)

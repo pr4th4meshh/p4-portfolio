@@ -4,9 +4,9 @@ import { saveAs } from 'file-saver';
 import img from '../components/prathamesh-cv.pdf'
 
 const style = {
-  sec: ` xs:h-[200px] p-2 h-[200px] bg-[#AACC00] text-[#007F5F] `,
+  sec: ` xxs:h-[250px] sm:h-[200px] p-2 h-[200px] bg-[#AACC00] text-[#007F5F] `,
   ul: ` ss:flex-row flex-col sm:text-[16px] md:text-[16px] text-[30px] ss:text-[16px] xs:text-[14px] xxs:text-[12px] text-[#007F5F] justify-evenly border-t-[1px] border-[#007F5F]`,
-  h3: `font-pop cursor-pointer `,
+  h3: `font-pop cursor-pointer xxs:text-[16px] `,
 }
 
 const Footer = () => {
@@ -18,7 +18,7 @@ const Footer = () => {
     <section className={` ${style.sec} `} >
       <ul className={` flex sm:${styles.flexCenter} ${styles.paddingY} ${style.ul} `}>
       <li>
-       <h3 className='font-pop p-3 ' >CREATED BY @PR4TH4MESHH</h3>
+       <h3 className='font-pop p-3 xxs:text-[16px] ' >CREATED BY @PR4TH4MESHH</h3>
       </li>
       <li>
         <a href="mailto:prathameshasolkar17@gmail.com?subject=subject text">
