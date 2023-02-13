@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '../style'
+import about from '../assets/P4.png'
 
 const style = {
     sec: `bg-[#AACC00] xxs:h-[470px] sm:pt-[80px] xs:h-[500px] h-[500px] ${styles.boxWidth} ${styles.paddingY}`,
@@ -32,7 +33,7 @@ const About = () => {
 
         <div className={`flex ${styles.paddingX} `} >
             <div className={` flex-0.5 xxs:pt-6 pb-6 ${styles.flexCenter} xxs:hidden md:block `}>
-               <img src='../assets/P4.png'  className={`${style.imgD}`} alt="" />
+               <img src={about}  className={`${style.imgD}`} alt="about" />
             </div>
             <div className={` ${styles.flexCenter} ${style.divS} `}>
                 <h2 className={`${style.h2}`} >FRONT-END WEB DEVELOPER | WEB DESIGNER | USER-INTERFACE & USER-EXPERIENCE | WORKING 
