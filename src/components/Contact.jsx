@@ -7,8 +7,8 @@ const style = {
   h1: `font-pop sm:text-[46px] text-[32px] ss:text-[26px] xs:text-[24px] xxs:text-[22px] text-[#007F5F] pb-4`,
   form: `py-2 rounded-lg`,
   label: `block font-medium mb-2`,
-  input: `form-input rounded-md w-full py-2 px-3  leading-5`,
-  button: `bg-[#007F5F] text-white py-2 px-4 rounded-md`,
+  input: `form-input rounded-md w-full py-2 px-3  leading-5 bg-[#007F5F] text-[#AACC00] placeholder-[#AACC00] `,
+  button: `bg-[#007F5F] text-[#AACC00] py-2 px-4 rounded-md mt-3`,
 }
 
 const Contact = () => {
