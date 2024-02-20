@@ -14,9 +14,9 @@ const Projects = () => {
         <div className={`${styles.paddingX}`} >
             <h1 className={` ${style.h1m} `} >PROJECTS:</h1>
             <ul className={` ${style.ul} `} >
+                <li><a href="https://github.com/pr4th4meshh/MERN-real-estate-app"><h1 className={`${style.h1}`}>⤳ MERN REAL ESTATE APP</h1></a></li>
                 <li><a href="https://github.com/pr4th4meshh/p4-ecommerce"><h1 className={`${style.h1}`} >⤳ E-COMMERCE APP</h1></a></li>
-                <li><a href="https://github.com/pr4th4meshh/chat-app-firebase"><h1 className={`${style.h1}`}>⤳ GROUP CHAT APP</h1></a></li>
-                <li><a href="https://github.com/pr4th4meshh/whitepace-web"><h1 className={`${style.h1}`}>⤳ WHITEPACE</h1></a></li>
+                <li><a href="https://github.com/pr4th4meshh/react-native-expo"><h1 className={`${style.h1}`}>⤳ REACT NATIVE E-COMMERCE APP</h1></a></li>
                 <li><a href="https://github.com/pr4th4meshh/p4-portfolio"><h1 className={`${style.h1}`}>⤳ PORTFOLIO WEBSITE</h1></a></li>
             </ul>
         </div>
