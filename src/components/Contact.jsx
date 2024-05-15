@@ -1,6 +1,6 @@
-import React from 'react'
-import styles from '../style'
-import { useState } from 'react';
+import React from "react"
+import styles from "../style"
+import { useState } from "react"
 
 const style = {
   sec: `bg-[#AACC00] text-[#007F5F] h-[500px]`,
@@ -13,44 +13,44 @@ const style = {
 
 const Contact = () => {
   return (
-    <section className={`${styles.boxWidth} ${styles.paddingX} ${style.sec} `} id='contact' >
-      <h1 className={` ${style.h1} `} >OUT HERE WE GET THINGS DONE:</h1>
-     <form action='https://formspree.io/f/xbjedkko' method='POST' className={` ${style.form} `}>
-  <label className={` ${style.label} `}>
-    Who's this:
-    <input
-      className={`${style.input}`}
-      placeholder='Your Name..'
-      type="text"
-      name='username'
-    />
-  </label>
-  <label className={`${style.label}`}>
-    Your E-mail:
-    <input
-      className={`${style.input}`}
-      placeholder='Your E-mail..'
-      type='email'
-      name='Email'
-    />
-  </label>
-  <label className={`${style.label}`}>
-    What's up !!
-    <input
-      className={`${style.input}`}
-      placeholder='Your message for me..'
-      type="text"
-      name='message'
-    />
-  </label>
-  <button
-    className={`${style.button}`}
-    type="submit"
-    value='send'
-  >
-    Submit
-  </button>
-    </form>
+    <section className={`${styles.paddingX} ${style.sec} `} id="contact">
+      <h1 className={` ${style.h1} `}>OUT HERE WE GET THINGS DONE:</h1>
+      <form
+        action="https://formspree.io/f/xbjedkko"
+        method="POST"
+        className={` ${style.form} `}
+      >
+        <label className={` ${style.label} `}>
+          Who's this:
+          <input
+            className={`${style.input}`}
+            placeholder="Your Name.."
+            type="text"
+            name="username"
+          />
+        </label>
+        <label className={`${style.label}`}>
+          Your E-mail:
+          <input
+            className={`${style.input}`}
+            placeholder="Your E-mail.."
+            type="email"
+            name="Email"
+          />
+        </label>
+        <label className={`${style.label}`}>
+          What's up !!
+          <input
+            className={`${style.input}`}
+            placeholder="Your message for me.."
+            type="text"
+            name="message"
+          />
+        </label>
+        <button className={`${style.button}`} type="submit" value="send">
+          Submit
+        </button>
+      </form>
     </section>
   )
 }

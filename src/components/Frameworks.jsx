@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from '../style'
+import React from "react"
+import styles from "../style"
 
 const style = {
   sec: `bg-[#AACC00] ss:h-[300px] p-2 h-[400px]`,
@@ -10,35 +10,34 @@ const style = {
 
 const Frameworks = () => {
   return (
-   <section className={`${style.sec}`} id='frameworks' >
-<div className={`${styles.paddingX} `} >
-<h1 className={` ${style.h1} `} >FRAMEWORKS I WORK ON:</h1>
+    <section className={`${style.sec}`} id="frameworks">
+      <div className={`${styles.paddingX} `}>
+        <h1 className={` ${style.h1} `}>FRAMEWORKS I WORK ON:</h1>
         <ul className={` flex sm:${styles.flexCenter}  ${style.ul} `}>
-      <li>
-       <h3 className={`${style.h3}`} >HTML5 ＋</h3>
-      </li>
-      <li>
-       <h3 className={`${style.h3}`} >CSS3 ＋</h3>
-      </li>
-      <li>
-       <h3 className={`${style.h3}`} >SASS ＋</h3>
-      </li>
-      <li>
-       <h3 className={`${style.h3}`} >REACT-JS ＋</h3>
-      </li>
-      <li>
-       <h3 className={`${style.h3}`} >REDUX ＋</h3>
-      </li>
-      <li>
-       <h3 className={`${style.h3}`} >FIREBASE ＋</h3>
-      </li>
-      <li>
-       <h3 className={`${style.h3}`} >TAILWIND </h3>
-      </li>
+          <li>
+            <h3 className={`${style.h3}`}>HTML5 ＋</h3>
+          </li>
+          <li>
+            <h3 className={`${style.h3}`}>CSS3 ＋</h3>
+          </li>
+          <li>
+            <h3 className={`${style.h3}`}>SASS ＋</h3>
+          </li>
+          <li>
+            <h3 className={`${style.h3}`}>REACT-JS ＋</h3>
+          </li>
+          <li>
+            <h3 className={`${style.h3}`}>REDUX ＋</h3>
+          </li>
+          <li>
+            <h3 className={`${style.h3}`}>FIREBASE ＋</h3>
+          </li>
+          <li>
+            <h3 className={`${style.h3}`}>TAILWIND </h3>
+          </li>
         </ul>
-        </div>
-
-   </section>
+      </div>
+    </section>
   )
 }
 
