@@ -15,7 +15,7 @@ module.exports = {
       },
       fontFamily: {
         pop: ['Poppins', 'sans-serif'],
-        wilk: ['Cursive', 'sans-serif'],
+        wilk: ['Wilk', 'sans-serif'],
       },
     },
     screens: {
