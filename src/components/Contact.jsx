@@ -3,12 +3,12 @@ import styles from "../style"
 import { useState } from "react"
 
 const style = {
-  sec: `bg-[#AACC00] text-[#007F5F] h-[500px]`,
-  h1: `font-pop sm:text-[46px] text-[32px] ss:text-[26px] xs:text-[24px] xxs:text-[22px] text-[#007F5F] pb-4`,
+  sec: `bg-[#D7E8BA] text-[#611C35] ${styles.paddingY}`,
+  h1: `font-pop sm:text-[46px] text-[32px] ss:text-[26px] xs:text-[24px] xxs:text-[22px] text-[#611C35] pb-4`,
   form: `py-2 rounded-lg`,
   label: `block font-medium mb-2`,
-  input: `form-input rounded-md w-full py-2 px-3  leading-5 bg-[#007F5F] text-[#AACC00] placeholder-[#AACC00] `,
-  button: `bg-[#007F5F] text-[#AACC00] py-2 px-4 rounded-md mt-3`,
+  input: `form-input rounded-md w-full py-2 px-3  leading-5 bg-[#611C35] text-[#D7E8BA] placeholder-[#D7E8BA] `,
+  button: `bg-[#611C35] text-[#D7E8BA] py-2 px-4 rounded-md mt-3`,
 }
 
 const Contact = () => {

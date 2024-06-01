@@ -2,10 +2,10 @@ import React from "react"
 import styles from "../style"
 
 const style = {
-  sec: ` xxs:h-[470px] xs:h-[700px] h-[100px] bg-[#AACC00] `,
-  ul: `sm:text-[56px] flex flex-col flex-wrap text-[52px] ss:text-[46px] xs:text-[40px] xxs:text-[26px] text-[#007F5F] xs:leading-[110px] leading-[50px]`,
-  h1m: `font-pop  sm:text-[46px] text-[32px] ss:text-[26px] xs:text-[24px] xxs:text-[22px] text-[#007F5F] pb-14`,
-  h1: `font-wilk mb-6 border-b-[2px] border-[#007F5F]  cursor-pointer`,
+  sec: `bg-[#D7E8BA] ${styles.paddingY} `,
+  ul: `sm:text-[56px] flex flex-col flex-wrap text-[52px] ss:text-[46px] xs:text-[40px] xxs:text-[23px] text-[#611C35] xs:leading-[110px] leading-[50px]`,
+  h1m: `font-pop  sm:text-[46px] text-[32px] ss:text-[26px] xs:text-[24px] xxs:text-[22px] text-[#611C35] pb-14`,
+  h1: `font-wilk mb-6 border-b-[2px] border-[#611C35]  cursor-pointer`,
 }
 
 const Projects = () => {
@@ -20,8 +20,8 @@ const Projects = () => {
             </a>
           </li>
           <li>
-            <a href="https://github.com/pr4th4meshh/p4-ecommerce">
-              <h1 className={`${style.h1}`}>⤳ E-COMMERCE APP</h1>
+            <a href="https://github.com/pr4th4meshh/restaurant-menu-nextjs-app">
+              <h1 className={`${style.h1}`}>⤳ RESTAURANT MENU APP</h1>
             </a>
           </li>
           <li>
@@ -30,8 +30,8 @@ const Projects = () => {
             </a>
           </li>
           <li>
-            <a href="https://github.com/pr4th4meshh/p4-portfolio">
-              <h1 className={`${style.h1}`}>⤳ PORTFOLIO WEBSITE</h1>
+            <a href="https://github.com/pr4th4meshh/p4-ecommerce">
+              <h1 className={`${style.h1}`}>⤳ E-COMMERCE APP</h1>
             </a>
           </li>
         </ul>

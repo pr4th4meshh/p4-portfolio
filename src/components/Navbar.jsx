@@ -4,8 +4,8 @@ import { navLinks } from '../constants'
 const style = {
   nav: `w-full flex py-6 justify-between items-center fixed backdrop-blur-2xl z-[999] animate__animated animate__fadeInDown animate__slower   `,
   ul: `list-none flex md:justify-end justify-center flex-1 px-6`,
-  li: `cursor-pointer mr-3 text-[#007F5F]`,
-  a: `ss:text-[14px] text-[10px] border-[1px] p-[7px] rounded-full border-[#007F5F] hover:bg-[#007f5f] hover:text-[#aacc00] ease-in duration-200`,
+  li: `cursor-pointer mr-3 text-[#611C35]`,
+  a: `ss:text-[14px] text-[10px] border-[1px] p-[7px] rounded-full border-[#611C35] hover:bg-[#611C35] hover:text-[#D7E8BA] ease-in duration-200`,
 }
 
 const Navbar = () => {

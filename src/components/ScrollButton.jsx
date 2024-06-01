@@ -3,7 +3,7 @@ import { useEffect } from "react"
 
 const style = {
   div: `fixed bottom-0 right-0 m-6`,
-  btn: `bg-[#007F5F] text-[#AACC00] py-2 px-4 rounded-full`,
+  btn: `bg-[#611C35] text-[#D7E8BA] py-2 px-4 rounded-full`,
 }
 
 const ScrollButton = () => {
