@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../style'
 import { saveAs } from 'file-saver';
-import img from '../components/prathamesh-cv.pdf'
+import img from '../components/prathamesh-cv2.pdf'
 
 const style = {
   sec: ` xxs:h-[250px] sm:h-[200px] p-2 h-[200px] bg-[#D7E8BA] text-[#611C35] `,

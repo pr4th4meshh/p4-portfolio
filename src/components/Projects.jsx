@@ -15,23 +15,23 @@ const Projects = () => {
         <h1 className={` ${style.h1m} `}>PROJECTS:</h1>
         <ul className={` ${style.ul} `}>
           <li>
-            <a href="https://github.com/pr4th4meshh/MERN-real-estate-app">
-              <h1 className={`${style.h1}`}>⤳ MERN REAL ESTATE APP</h1>
+            <a href="https://docs.google.com/document/d/1nLHX2pKMJMujqavqwANDVwAAnNEQl5c5j_nFy50KvsY/edit?usp=sharing">
+              <h1 className={`${style.h1}`}>⤳ CMS WEB APP</h1>
             </a>
           </li>
           <li>
-            <a href="https://github.com/pr4th4meshh/restaurant-menu-nextjs-app">
+            <a href="https://github.com/pr4th4meshh/MERN-real-estate-app">
+              <h1 className={`${style.h1}`}>⤳ MERN REAL-ESTATE APP</h1>
+            </a>
+          </li>
+          <li>
+          <a href="https://github.com/pr4th4meshh/restaurant-menu-nextjs-app">
               <h1 className={`${style.h1}`}>⤳ RESTAURANT MENU APP</h1>
             </a>
           </li>
           <li>
             <a href="https://github.com/pr4th4meshh/react-native-expo">
-              <h1 className={`${style.h1}`}>⤳ REACT NATIVE E-COMMERCE APP</h1>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/pr4th4meshh/p4-ecommerce">
-              <h1 className={`${style.h1}`}>⤳ E-COMMERCE APP</h1>
+              <h1 className={`${style.h1}`}>⤳ REACT-NATIVE E-COMMERCE APP</h1>
             </a>
           </li>
         </ul>
