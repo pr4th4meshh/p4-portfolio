@@ -36,8 +36,8 @@ const Footer = () => {
         </a>
       </li>
       <li>
-        <a href="https://twitter.com/pr4th4meshh">
-        <h3 className={`${style.h3}`} >TWITTER</h3>
+        <a href="https://www.linkedin.com/prathamesh-asolkar">
+        <h3 className={`${style.h3}`} >LINKED-IN</h3>
         </a>
       </li>
       <li >
