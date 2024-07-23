@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../style'
 import { saveAs } from 'file-saver';
-import img from '../components/prathamesh-cv2.pdf'
+import img from '../components/prathameshh-cv.pdf'
 
 const style = {
   sec: ` xxs:h-[250px] sm:h-[200px] p-2 h-[200px] bg-[#D7E8BA] text-[#611C35] `,
@@ -12,7 +12,7 @@ const style = {
 const Footer = () => {
   
   function downloadImage() {
-    saveAs(img, 'prathamesh-cv.pdf')
+    saveAs(img, 'prathameshh-cv.pdf')
   }
   return (
     <section className={` ${style.sec} `} >
@@ -36,7 +36,7 @@ const Footer = () => {
         </a>
       </li>
       <li>
-        <a href="https://www.linkedin.com/prathamesh-asolkar">
+        <a href="https://www.linkedin.com/in/prathamesh-asolkar/">
         <h3 className={`${style.h3}`} >LINKED-IN</h3>
         </a>
       </li>
