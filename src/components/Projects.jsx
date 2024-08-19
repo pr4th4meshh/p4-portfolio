@@ -25,13 +25,13 @@ const Projects = () => {
             </a>
           </li>
           <li>
-          <a href="https://github.com/pr4th4meshh/restaurant-menu-nextjs-app">
-              <h1 className={`${style.h1}`}>⤳ RESTAURANT MENU APP</h1>
+          <a href="https://github.com/pr4th4meshh/book-appointment-mern">
+              <h1 className={`${style.h1}`}>⤳ MONGO - NEXTJS BOOKING APP </h1>
             </a>
           </li>
           <li>
-            <a href="https://github.com/pr4th4meshh/react-native-expo">
-              <h1 className={`${style.h1}`}>⤳ REACT-NATIVE E-COMMERCE APP</h1>
+            <a href="https://github.com/pr4th4meshh/doctors-react-native-app">
+              <h1 className={`${style.h1}`}>⤳ REACT-NATIVE DOCTORS APP</h1>
             </a>
           </li>
         </ul>
