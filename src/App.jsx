@@ -1,107 +1,94 @@
-import { useState, useEffect } from 'react'
-import './index.css'
-import 'animate.css'
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
-const projects = [
-  { name: "Musea", image: "/placeholder.svg?height=200&width=300" },
-  { name: "Elara", image: "/placeholder.svg?height=200&width=300" },
-  { name: "Verve", image: "/placeholder.svg?height=200&width=300" },
-  { name: "Zephyr", image: "/placeholder.svg?height=200&width=300" },
-]
-
-function App() {
-  const [loading, setLoading] = useState(true)
-  const [activeProject, setActiveProject] = useState(0)
+const App = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3000)
-  }, [])
+    const updateMousePosition = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
 
-  if (loading) {
-    return <LoadingScreen />
-  }
+    window.addEventListener('mousemove', updateMousePosition);
+
+    return () => {
+      window.removeEventListener('mousemove', updateMousePosition);
+    };
+  }, []);
 
   return (
-    <div className="min-h-screen bg-primary p-4 md:p-8">
-      <div className="h-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 text-white gap-4">
-        {/* Header */}
-        <div className="col-span-full p-8 flex justify-between items-center bg-secondary text-white rounded-lg">
-          <h1 className="text-2xl font-semibold">@pr4th4meshh</h1>
-          <nav>
-            {/* <ul className="flex space-x-4 text-sm">
-              <li><a href="https://github.com/pr4th4meshh" className="hover:underline">GitHub</a></li>
-            </ul> */}
-          </nav>
+    <div className="bg-primary text-white min-h-screen flex flex-col overflow-hidden cursor-none">
+      <motion.div
+        className="fixed w-10 h-10 bg-white rounded-full pointer-events-none z-50 mix-blend-difference"
+        style={{
+          left: mousePosition.x - 24,
+          top: mousePosition.y - 24,
+        }}
+      />
+
+      <header className="p-6 container mx-auto flex justify-between items-center">
+        <div className="text-xl font-pop">hi, iam @pr4th4meshh</div>
+        <button className="text-2xl">☰</button>
+      </header>
+      
+      <main className="flex-grow flex items-center justify-center relative">
+        <div className="z-10 text-center">
+        <h1 className="text-md sm:text-2xl mb-4 leading-tight">Front-End Developer based in 📍Mumbai.</h1>
+          <h1 className="text-6xl sm:text-7xl font-bold mb-4 leading-tight">
+            I enjoy building,
+            <br />
+            <span className='italic'>web</span> and <span className='italic'>mobile</span>
+            <br />
+            products.
+          </h1>
         </div>
 
-        {/* Main Content */}
-        <div className="md:col-span-2 bg-secondary rounded-lg p-8 flex flex-col justify-center">
-          <h2 className="text-3xl md:text-6xl font-bold mb-2">I enjoy building </h2>
-          <h2 className="text-3xl md:text-6xl font-bold mb-2">web and mobile products</h2>
-          {/* <h2 className="text-3xl md:text-4xl font-bold">and im </h2> */}
-        </div>
+        {/* <motion.div
+          className="absolute left-12 top-1/4 w-40 h-40 border-8 border-gray-300 rounded-full opacity-20"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        /> */}
 
-        {/* Projects Section */}
-        <div className="md:row-span-2 bg-secondary rounded-lg p-6 flex flex-col">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold">{projects[activeProject].name}</h3>
-            <span>↗</span>
-          </div>
-          <img
-            src={projects[activeProject].image}
-            alt={`${projects[activeProject].name} Project`}
-            className="w-full h-40 object-cover rounded-lg mb-4"
-          />
-          <div className="flex flex-wrap justify-between mt-auto">
-            {projects.map((project, index) => (
-              <button
-                key={project.name}
-                onClick={() => setActiveProject(index)}
-                className={`font-semibold mb-2 ${index === activeProject ? 'text-pink-600' : 'text-pink-800'}`}
-              >
-                {project.name}
-              </button>
-            ))}
-          </div>
-        </div>
+        <motion.div
+          className="absolute right-1/4 bottom-1/4 w-40 h-40 border-8 border-white rounded-full opacity-60"
+          animate={{
+            x: [0, -100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
 
-        {/* About Section */}
-        <div className="bg-secondary rounded-lg p-6 text-sm">
-          <p>
-            Julia Huang is an innovative AI artist, renowned for blending cutting-edge technology with creative expression. Based in LA, she crafts unique digital art experiences accessible globally.
-          </p>
-        </div>
+        {/* <motion.div
+          className="absolute right-3/4 bottom-1/4 w-40 h-40 border-8 border-white rounded-full opacity-60"
+          animate={{
+            x: [0, -100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 75,
+            repeat: Infinity,
+            ease: "backInOut"
+          }}
+        /> */}
+      </main>
 
-        {/* Contact Section */}
-        <div className="bg-secondary rounded-lg p-6 flex flex-col justify-between">
-          <div>
-            <h3 className="text-sm font-semibold mb-2">Have some questions?</h3>
-            <a href="#contact" className="text-xl font-bold hover:underline">
-              Contact me
-            </a>
-          </div>
-          <div className="text-right">→</div>
-        </div>
-
-        {/* Footer */}
-        <div className="col-span-full flex justify-center md:justify-end space-x-4 mt-4">
-          <a href="#" className="text-xs hover:underline">INSTAGRAM</a>
-          <a href="#" className="text-xs hover:underline">TWITTER</a>
-          <a href="#" className="text-xs hover:underline">LINKEDIN</a>
-        </div>
-      </div>
+      <footer className="p-6 text-center">
+        <p className='text-xl'>SCROLL</p>
+        <div className="w-0.5 h-8 bg-white mx-auto mt-2"></div>
+      </footer>
     </div>
-  )
-}
+  );
+};
 
-function LoadingScreen() {
-  return (
-    <div className="flex items-center justify-center h-screen bg-pink-200">
-      <div className="animate__animated animate__bounce text-4xl font-bold">
-        Loading...
-      </div>
-    </div>
-  )
-}
-
-export default App
+export default App;
