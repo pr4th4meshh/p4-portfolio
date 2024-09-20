@@ -10,13 +10,18 @@ const style = {
 
 const Hero = () => {
   return (
-    <section className={` ${style.sec} `}>
-      <div className={` ${style.div} ${styles.paddingX} `}>
-        <h1 className={` ${style.h1} `}>
-          PR4TH4MESHH'S <br /> PRTFLO//
-        </h1>
-        <p className={` ${style.p} `}>I convert plain text into WEB APPS.</p>
-      </div>
+    // <section className={` ${style.sec} `}>
+    //   <div className={` ${style.div} ${styles.paddingX} `}>
+    //     <h1 className={` ${style.h1} `}>
+    //       PR4TH4MESHH'S <br /> PRTFLO//
+    //     </h1>
+    //     <p className={` ${style.p} `}>I convert plain text into WEB APPS.</p>
+    //   </div>
+    // </section>
+    <section className="h-screen bg-black text-white flex justify-center items-center p-4">
+      <h1 className="text-white animate-none text-5xl sm:text-7xl text-center animate__animated animate__fadeIn animate__slower">
+        Portfolio <span className="italic">v2</span> coming soon :)
+      </h1>
     </section>
   )
 }
