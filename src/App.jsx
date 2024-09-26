@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Hero from "./components/Hero"
@@ -8,16 +7,13 @@ import About from "./components/About"
 import Footer from "./components/Footer"
 import SkillsSection from "./components/TechStack"
 import LoadingScreen from "./components/LoadingScreen"
-import 'animate.css';
+import "animate.css"
 import About from "./components/About"
-import Contact from "./components/Contact"
 import Footer from "./components/Footer"
-import Frameworks from "./components/Frameworks"
 import Hero from "./components/Hero"
 import LoadingScreen from "./components/LoadingScreen"
 import Navbar from "./components/Navbar"
 import Projects from "./components/Projects"
-import ScrollButton from "./components/ScrollButton"
 import "./index.css"
 import { useState, useEffect } from "react"
 import "animate.css"
@@ -37,13 +33,13 @@ const App = () => {
       window.removeEventListener("mousemove", updateMousePosition)
     }
   }, [])
-  
 
   return (
     <div className="overflow-hidden cursor-none">
       <AnimatePresence>
         {loading && <LoadingScreen setLoading={setLoading} />}
       </AnimatePresence>
+
       <motion.div
         className="fixed w-10 h-10 bg-white rounded-full pointer-events-none z-[999] mix-blend-difference"
         style={{
@@ -60,6 +56,7 @@ const App = () => {
           <SkillsSection />
           <Footer />
         </>
+      )}
     </div>
   )
 }
