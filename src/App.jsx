@@ -8,15 +8,6 @@ import Footer from "./components/Footer"
 import SkillsSection from "./components/TechStack"
 import LoadingScreen from "./components/LoadingScreen"
 import "animate.css"
-import About from "./components/About"
-import Footer from "./components/Footer"
-import Hero from "./components/Hero"
-import LoadingScreen from "./components/LoadingScreen"
-import Navbar from "./components/Navbar"
-import Projects from "./components/Projects"
-import "./index.css"
-import { useState, useEffect } from "react"
-import "animate.css"
 
 const App = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
