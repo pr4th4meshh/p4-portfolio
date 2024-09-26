@@ -1,28 +1,25 @@
-import React , {useState} from 'react'
-import { navLinks } from '../constants'
-
-const style = {
-  nav: `w-full flex py-6 justify-between items-center fixed backdrop-blur-2xl z-[999] animate__animated animate__fadeInDown animate__slower   `,
-  ul: `list-none flex md:justify-end justify-center flex-1 px-6`,
-  li: `cursor-pointer mr-3 text-[#611C35]`,
-  a: `ss:text-[14px] text-[10px] border-[1px] p-[7px] rounded-full border-[#611C35] hover:bg-[#611C35] hover:text-[#D7E8BA] ease-in duration-200`,
-}
+import React, { useState } from "react"
+import { navLinks } from "../constants"
 
 const Navbar = () => {
+  function scrollToBottom() {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    })
+  }
   return (
-    <div >
-       <nav className={` ${style.nav} `} >
-      <ul className={` ${style.ul} `}>
-      {navLinks.map((nav) => (
-        <li key={nav.id} className={` ${style.li} `}>
-          <a href={`#${nav.id}`} className={` ${style.a} `} >
-            {nav.title}
-          </a>
-        </li>
-      ))}
-      </ul>
+    <nav className="bg-primary text-white fixed top-0 left-0 w-full z-50 bg-transparent mix-blend-difference">
+      <header className="px-0 py-6 md:py-6 container mx-auto flex justify-between items-center animate__animated animate__fadeInDown animate__slower">
+        <span className="text-lg md:text-xl font-pop">hi, iam @pr4th4meshh</span>
+        <span
+          onClick={scrollToBottom}
+          className="text-lg md:text-xl uppercase font-pop cursor-pointer"
+        >
+          contact
+        </span>
+      </header>
     </nav>
-    </div>
   )
 }
 

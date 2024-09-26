@@ -15,8 +15,15 @@ module.exports = {
       },
       fontFamily: {
         pop: ['Poppins', 'sans-serif'],
-        wilk: ['Wilk', 'sans-serif'],
+        gag: ['Gag'],
+        dolce: ['Dolce']
       },
+      minHeight: {
+        "screen-height": "calc(100vh - 80px)"
+      },
+      height: {
+        "screen-height": "calc(100vh - 80px)"
+      }
     },
     screens: {
       xxs:"360px",
