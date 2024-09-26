@@ -1,27 +1,70 @@
-import React from "react"
-import styles from "../style"
-
-const style = {
-  sec: `flex flex-col bg-[#D7E8BA] pt-10 xxs:h-[60vh] xxs:justify-center xs:h-auto ${styles.paddingY}`,
-  div: `pt-[50px] flex flex-col`,
-  h1: ` animate__animated animate__fadeInLeft animate__slower font-wilk sm:pt-[60px] text-[#611C35] sm:text-[82px] text-[72px] ss:text-[56px] xs:text-[42px] xxs:text-[38px]`,
-  p: ` animate__animated animate__fadeInLeft animate__slower lg:[pb-0] sm:pb-[0px] sm:text-[56px] text-[52px] ss:text-[46px] xs:text-[40px] xxs:text-[32px] text-[#611C35] `,
-}
+import React, { useState, useEffect } from "react"
+import { motion } from "framer-motion"
 
 const Hero = () => {
   return (
-    // <section className={` ${style.sec} `}>
-    //   <div className={` ${style.div} ${styles.paddingX} `}>
-    //     <h1 className={` ${style.h1} `}>
-    //       PR4TH4MESHH'S <br /> PRTFLO//
-    //     </h1>
-    //     <p className={` ${style.p} `}>I convert plain text into WEB APPS.</p>
-    //   </div>
-    // </section>
-    <section className="h-screen bg-black text-white flex justify-center items-center p-4">
-      <h1 className="text-white animate-none text-5xl sm:text-7xl text-center animate__animated animate__fadeIn animate__slower">
-        Portfolio <span className="italic">v2</span> coming soon :)
-      </h1>
+    <section className="bg-primary text-white min-h-screen flex flex-col">
+      <main className="flex-grow flex items-center justify-center relative ">
+        <div className="z-10 text-center">
+          <h1 className="text-md sm:text-2xl mb-4 leading-tight font-pop animate__animated animate__fadeInLeft animate__slower">
+            Front-End Developer based in 📍Mumbai.
+          </h1>
+          <h1 className="text-6xl md:text-7xl font-bold mb-4 leading-tight animate__animated animate__fadeInLeft animate__slower">
+            I enjoy building
+            <br />
+            <span className="italic">web</span> and{" "}
+            <span className="italic">mobile</span>
+            <br />
+            products.{" "}
+            <h1 className="font-gag text-8xl font-normal relative left-[100px] md:left-[200px]">
+              4
+            </h1>
+          </h1>
+        </div>
+
+        {/* <motion.div
+          className="absolute left-12 top-1/4 w-40 h-40 border-8 border-gray-300 rounded-full opacity-20"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        /> */}
+
+        {/* <motion.div
+          className="absolute right-1/4 bottom-1/4 w-40 h-40 border-8 border-white rounded-full opacity-60"
+          animate={{
+            x: [0, -100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        /> */}
+
+        {/* <motion.div
+          className="absolute right-3/4 bottom-1/4 w-40 h-40 border-8 border-white rounded-full opacity-60"
+          animate={{
+            x: [0, -100, 0],
+            y: [0, -50, 0],
+          }}
+          transition={{
+            duration: 75,
+            repeat: Infinity,
+            ease: "backInOut"
+          }}
+        /> */}
+        <footer className="p-6 text-center absolute bottom-0 animate__animated animate__fadeInUp animate__slower">
+          <p className="text-xl font-pop">SCROLL</p>
+          <div className="w-0.5 h-8 bg-white mx-auto mt-2"></div>
+        </footer>
+      </main>
     </section>
   )
 }

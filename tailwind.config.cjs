@@ -8,15 +8,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#00040F",
-        secondary: "#00f6ff",
+        primary: "#09090b",
+        secondary: "#1c1c1d",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
       },
       fontFamily: {
         pop: ['Poppins', 'sans-serif'],
-        wilk: ['Wilk', 'sans-serif'],
+        gag: ['Gag'],
+        dolce: ['Dolce']
       },
+      minHeight: {
+        "screen-height": "calc(100vh - 80px)"
+      },
+      height: {
+        "screen-height": "calc(100vh - 80px)"
+      }
     },
     screens: {
       xxs:"360px",
