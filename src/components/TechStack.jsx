@@ -32,7 +32,7 @@ const SkillsSection = () => {
 
       <FadeInAnimation>
         <h1 className="font-pop text-center flex justify-center items-center flex-wrap text-5xl md:text-9xl pt-64">
-          THAT'S<span className="font-dolce">2</span>IT
+         THAT'S ✹ IT  
         </h1>
       </FadeInAnimation>
     </div>

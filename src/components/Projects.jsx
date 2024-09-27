@@ -141,7 +141,7 @@ function ProjectShowcase() {
                 whileTap={{ scale: 0.97 }}
               >
                 <h1
-                  className={`text-white text-4xl md:text-7xl font-medium font-pop mb-4 cursor-none flex ${
+                  className={`text-white text-5xl md:text-7xl font-medium font-pop mb-4 cursor-none flex ${
                     index === activeIndex
                       ? "opacity-100 font-normal md:font-thin"
                       : "opacity-30"
@@ -149,7 +149,7 @@ function ProjectShowcase() {
                 >
                   {project.title}{" "}
                   {index === activeIndex && (
-                    <h1 className="font-gag font-thin">{index + 1}</h1>
+                    <h1 className="font-pop">✹</h1>
                   )}
                 </h1>
               </motion.div>

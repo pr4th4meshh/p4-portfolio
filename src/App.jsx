@@ -32,7 +32,7 @@ const App = () => {
       </AnimatePresence>
 
       <motion.div
-        className="fixed w-10 h-10 bg-white rounded-full pointer-events-none z-[999] mix-blend-difference"
+        className="hidden md:block fixed w-10 h-10 bg-white rounded-full pointer-events-none z-[999] mix-blend-difference"
         style={{
           left: mousePosition.x - 24,
           top: mousePosition.y - 24,

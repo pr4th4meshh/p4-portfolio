@@ -6,7 +6,7 @@ const FadeInAnimation = ({
   children,
   direction = "left",
   delay = 0,
-  duration = 2,
+  duration = 1.5,
   className = "",
 }) => {
   const controls = useAnimation()

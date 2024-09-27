@@ -11,7 +11,10 @@ const Footer = () => {
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
-  let localDate = new Date().toLocaleTimeString("en-Us", {timeZone: 'Asia/Kolkata', timeStyle: "short"});
+  let localDate = new Date().toLocaleTimeString("en-Us", {
+    timeZone: "Asia/Kolkata",
+    timeStyle: "short",
+  })
 
   return (
     <footer
@@ -31,19 +34,25 @@ const Footer = () => {
             </div>
             <div className="space-x-0">
               <a
-                href="https://github.com"
+                rel="noopener"
+                target="_blank"
+                href="https://github.com/pr4th4meshh"
                 className="block hover:text-gray-300 hover:underline underline-offset-4 font-pop"
               >
                 GITHUB
               </a>
               <a
-                href="https://codepen.io"
+                rel="noopener"
+                target="_blank"
+                href="https://www.linkedin.com/in/prathamesh-asolkar/"
                 className="block hover:text-gray-300 hover:underline underline-offset-4 font-pop"
               >
                 LINKEDIN
               </a>
               <a
-                href="https://twitter.com"
+                rel="noopener"
+                target="_blank"
+                href="https://instagram.com/pr4th4meshh"
                 className="block hover:text-gray-300 hover:underline underline-offset-4 font-pop"
               >
                 INSTAGRAM
@@ -77,12 +86,11 @@ const Footer = () => {
                 onClick={scrollToTop}
                 className="block pt-8 pb-0 hover:text-gray-300 hover:underline underline-offset-4 font-pop cursor-pointer"
               >
-                &#9829; BACK TO TOP &#8593;
+                &#8593; BACK TO TOP &#8593;
               </h1>
-              <span
-          className="text-xl uppercase font-pop cursor-pointer"
-        
-        >MUM, IN // {localDate}</span>
+              <span className="text-xl uppercase font-pop cursor-pointer">
+                MUM, IN // {localDate}
+              </span>
             </div>
           </div>
           <div className="text-center pt-20 pb-16">

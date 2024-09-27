@@ -3,18 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: Gag;
-  src: url(../src/assets/La\ Gagliane.otf);
-}
-
-@font-face {
   font-family: Pop;
   src: url(../src/assets/fonts/Poppins/Poppins-Light.ttf);
-}
-
-@font-face {
-  font-family: Dolce;
-  src: url(../src/assets/Dolce\ &\ Amyara.otf);
 }
 
 * {
