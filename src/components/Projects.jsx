@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useDragControls } from "framer-motion"
 import REINImage from "../assets/shopping.jpeg"
 import FREELANCEImage from "../assets/freelancecms.jpeg"
 import DOCTORSImage from "../assets/doctors.jpeg"
@@ -52,6 +52,7 @@ const projects = [
 
 function ProjectShowcase() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const dragControls = useDragControls()
 
   const variants = {
     enter: (direction) => ({
@@ -68,6 +69,21 @@ function ProjectShowcase() {
       x: direction < 0 ? 1000 : -1000,
       opacity: 0,
     }),
+  }
+
+  const handleDragEnd = (event, info) => {
+    const swipeThreshold = 50
+    if (info.offset.x > swipeThreshold) {
+      // Swiped right
+      setActiveIndex((prevIndex) =>
+        prevIndex === 0 ? projects.length - 1 : prevIndex - 1
+      )
+    } else if (info.offset.x < -swipeThreshold) {
+      // Swiped left
+      setActiveIndex((prevIndex) =>
+        prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+      )
+    }
   }
 
   return (
@@ -92,6 +108,11 @@ function ProjectShowcase() {
                   opacity: { duration: 0.5 },
                 }}
                 className="absolute inset-0"
+                drag="x"
+                dragControls={dragControls}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={1}
+                onDragEnd={handleDragEnd}
               >
                 <img
                   src={projects[activeIndex].image}
@@ -148,9 +169,7 @@ function ProjectShowcase() {
                   }`}
                 >
                   {project.title}{" "}
-                  {index === activeIndex && (
-                    <h1 className="font-pop">✹</h1>
-                  )}
+                  {index === activeIndex && <h1 className="font-pop">✹</h1>}
                 </h1>
               </motion.div>
             ))}
