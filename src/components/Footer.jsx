@@ -1,11 +1,11 @@
 import { saveAs } from "file-saver"
 import React from "react"
-import resume from "../components/prathameshh-cv.pdf"
+import resume from "../components/PrathameshResume.pdf"
 import FadeInAnimation from "./FadeInAnimation"
 
 const Footer = () => {
   function downloadResume() {
-    saveAs(resume, "Prathamesh-CV")
+    saveAs(resume, "Prathamesh-Resume")
   }
 
   function scrollToTop() {
