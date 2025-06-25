@@ -5,7 +5,6 @@ import FREELANCEImage from "../assets/freelancecms.jpeg"
 import DOCTORSImage from "../assets/doctors.jpeg"
 import SKINCAREImage from "../assets/skincare.jpeg"
 import FORMSImage from "../assets/forms.jpeg"
-import FadeInAnimation from "./FadeInAnimation"
 
 const projects = [
   {
@@ -88,7 +87,6 @@ function ProjectShowcase() {
 
   return (
     <div className="bg-primary py-16 min-h-screen flex flex-col">
-      <FadeInAnimation>
         <h1 className="container mx-auto text-white text-2xl font-bold uppercase tracking-wide mb-8 font-pop">
           projects
         </h1>
@@ -175,7 +173,6 @@ function ProjectShowcase() {
             ))}
           </div>
         </main>
-      </FadeInAnimation>
     </div>
   )
 }

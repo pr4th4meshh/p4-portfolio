@@ -34,7 +34,7 @@ const LoadingScreen = ({ setLoading }) => {
       className="fixed inset-0 bg-primary flex items-center justify-center z-50"
       initial={{ opacity: 1 }}
       exit={{ opacity: 1, x: 2000 }}
-      transition={{ duration: 1.8 }}
+      transition={{ duration: 1 }}
     >
       <AnimatePresence mode="wait">
         <div key={currentGreeting} className="text-center">

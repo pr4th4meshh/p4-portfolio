@@ -1,7 +1,6 @@
 import { saveAs } from "file-saver"
 import React from "react"
-import resume from "../components/PrathameshResume.pdf"
-import FadeInAnimation from "./FadeInAnimation"
+import resume from "../components/resume_25_06_2025.pdf"
 
 const Footer = () => {
   function downloadResume() {
@@ -21,7 +20,6 @@ const Footer = () => {
       className="bg-primary text-white py-2 pt-48 md:pt-44 px-0"
       id="footer"
     >
-      <FadeInAnimation>
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-baseline gap-10 md:gap-4 mb-8 text-xl">
             <div className="text-start space-y-0">
@@ -102,7 +100,6 @@ const Footer = () => {
             </a>
           </div>
         </div>
-      </FadeInAnimation>
     </footer>
   )
 }

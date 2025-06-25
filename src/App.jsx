@@ -8,6 +8,7 @@ import Footer from "./components/Footer"
 import SkillsSection from "./components/TechStack"
 import LoadingScreen from "./components/LoadingScreen"
 import "animate.css"
+import ExperienceSection from "./components/Experience"
 
 const App = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -44,6 +45,7 @@ const App = () => {
           <Hero />
           <About />
           <Projects />
+          <ExperienceSection />
           <SkillsSection />
           <Footer />
         </>
