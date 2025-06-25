@@ -1,14 +1,14 @@
 const experiences = [
   {
     title: "Freelance Front-End Developer",
-    company: "Self-Employed",
+    company: "Self-Employed, Remote",
     period: "April 2023 - Present",
     description:
       "Building custom web solutions for clients with modern technologies like React, Next.js, TypeScript, TailwindCSS, MongoDB, Mongoose, Express, Prisma, Redux Toolkit, RTK Query, Framer Motion, and more.",
   },
   {
     title: "Software Developer Intern",
-    company: "Orim Advisors",
+    company: "Orim Advisors, Mumbai IN // Onsite",
     period: "January 2025 - Present",
     description: [
       "Worked with Cloud Engineers to develop a solid FrontEnd for Cloud Software using Vite React with TypeScript, Tanstack Query and Zustand State Management on Docker.",
@@ -19,7 +19,7 @@ const experiences = [
   },
   {
     title: "Full-Stack Developer Intern",
-    company: "FuzzyNodes",
+    company: "FuzzyNodes, Australia // Remote",
     period: "December 2024 - Jun 2025",
     description: [
       "Architected and deployed a full-stack responsive web app with an admin dashboard using Next.js, TypeScript, Tailwind CSS, ShadCN, and an Express TypeScript backend.",
