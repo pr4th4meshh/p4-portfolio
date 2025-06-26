@@ -7,6 +7,9 @@ module.exports = {
   mode: 'jit',
   theme: {
     extend: {
+      animation: {
+        "spin-slow": "spin 5s linear infinite",
+      },
       colors: {
         primary: "#09090b",
         secondary: "#1c1c1d",

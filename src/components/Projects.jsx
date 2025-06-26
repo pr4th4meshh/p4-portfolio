@@ -129,7 +129,7 @@ function ProjectShowcase() {
                     {projects[activeIndex].tech.map((tech) => (
                       <span
                         key={tech}
-                        className="text-white border border-white px-4 py-2 rounded-full text-xs md:text-lg"
+                        className="text-white border border-white px-4 py-2 rounded-full text-xs md:text-lg font-pop"
                       >
                         {tech}
                       </span>
@@ -160,14 +160,14 @@ function ProjectShowcase() {
                 whileTap={{ scale: 0.97 }}
               >
                 <h1
-                  className={`text-white text-5xl md:text-7xl font-medium font-pop mb-4 cursor-none flex ${
+                  className={`text-white text-4xl md:text-6xl font-pop mb-4 cursor-none flex ${
                     index === activeIndex
-                      ? "opacity-100 font-normal md:font-thin"
+                      ? "opacity-100 font-thin"
                       : "opacity-30"
                   }`}
                 >
                   {project.title}{" "}
-                  {index === activeIndex && <h1 className="font-pop">✹</h1>}
+                  {index === activeIndex && <h1 className="font-pop animate-spin-slow">✹</h1>}
                 </h1>
               </motion.div>
             ))}

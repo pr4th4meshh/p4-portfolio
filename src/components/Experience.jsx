@@ -67,7 +67,7 @@ const ExperienceSection = () => {
                 </h3>
 
                 {Array.isArray(experience.description) ? (
-                  <div className="space-y-3 md:space-y-4">
+                  <div className="space-y-2">
                     {experience.description.map((desc, descIndex) => (
                       <p
                         key={descIndex}

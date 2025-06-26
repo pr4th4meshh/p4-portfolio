@@ -63,7 +63,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="">
-            <span className="font-pop">PORTFOLIO 2024 .</span>
+            <span className="font-pop">PORTFOLIO 2025 .</span>
             <p className="font-pop">DEVELOPED & IMAGINED</p>
             <p className="font-pop">
               BY{" "}
