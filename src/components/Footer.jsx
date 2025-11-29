@@ -1,6 +1,6 @@
 import { saveAs } from "file-saver"
 import React from "react"
-import resume from "../components/resume_25_06_2025.pdf"
+import resume from "../components/PrathameshResume.pdf"
 
 const Footer = () => {
   function scrollToTop() {
