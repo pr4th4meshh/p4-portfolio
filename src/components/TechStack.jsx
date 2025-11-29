@@ -126,7 +126,7 @@ const SkillsSection = () => {
           {skills.map(({ label, Icon }, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center space-y-2 group hover:scale-105 transition-transform duration-300"
+              className="flex flex-col items-center justify-center space-y-2 group transition-transform duration-300"
             >
               <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-transparent fill-white opacity-50 rounded-xl p-3 shadow-md">
                 <Icon className="w-full h-full text-primary" />

@@ -1,20 +1,22 @@
 const experiences = [
   {
-    title: "Freelance Front-End Developer",
-    company: "Self-Employed, Remote",
-    period: "April 2023 - Present",
-    description:
-      "Building custom web solutions for clients with modern technologies like React, Next.js, TypeScript, TailwindCSS, MongoDB, Mongoose, Express, Prisma, Redux Toolkit, RTK Query, Framer Motion, and more.",
+    title: "SDE-1",
+    company: "Prana India, Bengaluru, Karnataka IN // Onsite",
+    period: "September 2025 - Present",
+    description: [
+      "Co-engineered all backend services for Prana India—from auth to consultations—along with DB design using PostgreSQL, Prisma, Node/TypeScript, Docker, AWS, Zod, and WebSockets.",
+      "Built the entire consultation FrontEnd with React-TypeScript, Zustand, Zod, TanStack Query, and WebSockets for real-time chat and call interactions.",
+      "Built a URL shortener (FastAPI + Jinja) service and set up CI/CD pipelines using Docker, GitHub Actions, and AWS Amplify.",
+    ],
   },
   {
     title: "Software Developer Intern",
     company: "Orim Advisors, Mumbai IN // Onsite",
-    period: "January 2025 - Present",
+    period: "January 2025 - September 2025",
     description: [
       "Worked with Cloud Engineers to develop a solid FrontEnd for Cloud Software using Vite React with TypeScript, Tanstack Query and Zustand State Management on Docker.",
       "Developed end-to-end (E2E) and component-level tests with Playwright and Vitest, ensuring UI reliability and API contract.",
       "Developed API routes on Python FastAPI; contributed to Python-based data ingestion pipelines for analytics services.",
-      "Interacted (CRUD) with PostgreSQL database and performed Docker-based deployments to remote Linux servers via SSH.",
     ],
   },
   {
@@ -27,6 +29,13 @@ const experiences = [
       "Engineered scalable UI and APIs for a Web3 app using Bun and Elysia, enhancing real-time performance.",
       "Designed and built an end-to-end multi-restaurant management platform, covering admin control, customer reservations, live updates and food delivery using Next.js and Node.js.",
     ],
+  },
+  {
+    title: "Freelance Front-End Developer",
+    company: "Self-Employed, Remote",
+    period: "April 2023 - Present",
+    description:
+      "Building custom web solutions for clients with modern technologies like React, Next.js, TypeScript, TailwindCSS, MongoDB, Mongoose, Express, Prisma, Redux Toolkit, RTK Query, Framer Motion, and more.",
   },
 ]
 
