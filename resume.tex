@@ -1,0 +1,123 @@
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.2 in,top=0.2in,right=0.2 in,bottom=0.2in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{prathamesh asolkar} % Your name
+% You can merge both of these into a single line, if you do not have a website.
+\address{
+\href{tel:+917506096826}{+91 7506096826} -
+\href{mailto:prathameshasolkar@gmail.com}{prathameshasolkar@gmail.com} -
+\href{https://iamprathamesh.xyz}{Website} -
+\href{https://www.linkedin.com/in/prathamesh-asolkar/}{LinkedIn} - % TODO: confirm LinkedIn handle
+\href{https://github.com/pr4th4meshh}{GitHub} % TODO: confirm GitHub handle (pr4th4meshh?)
+}
+
+%----------------------------------------------------------------------------------------
+%    UTIL
+%----------------------------------------------------------------------------------------
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=blue}
+\linespread{0.9}\selectfont
+
+\newcommand{\experience}[5]{
+    \textbf{#1} @ \textit{\textbf{#2}} \hfill #3, \textit{#4}
+    \vspace{-7pt}
+    \begin{itemize}[leftmargin=*]
+        \itemsep -7pt {}
+        #5
+    \end{itemize}
+    \vspace{-4pt}
+}
+
+\newcommand{\project}[5]{
+    \item \textbf{#1} --- \href{#2}{Live} $\cdot$ \href{#3}{Code} \hfill \textit{#4}\\
+    #5
+    \vspace{-5pt}
+}
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%    SUMMARY
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Summary}
+\vspace{-4pt}
+Passionate Full-Stack Developer with 2+ years of hands-on experience building responsive, user-friendly websites and web applications with modern, in-demand technologies.
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%    EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{EXPERIENCE}
+
+\experience{SDE-1}{\href{https://pranaindia.com}{Prana India}}{Sept 2025 -- Present}{Bengaluru (On-site)}{
+    \item Built the customer-facing pranaindia.com (Next.js/TypeScript) and implemented \textbf{real-time chat and voice-call} consultations end-to-end \textbf{in-house} over WebSockets, replacing paid third-party APIs and sustaining concurrent chats at low latency with \textbf{AES-GCM encrypted messaging}. % TODO: add concurrent-chat count / latency figures if available
+    \item Built the entire consultation front-end with \textbf{React, TypeScript, Zustand, Zod, TanStack Query}, and WebSockets for real-time chat and call interactions using best practices.
+    \item Developed a full-stack astrology consultation app featuring real-time chat, in-app voice calls, push notifications, consultation workflows, and analytics dashboards.
+}
+
+\experience{Software Developer Intern}{ORIM Advisors}{Jan 2025 -- Sept 2025}{Mumbai (On-site)}{
+    \item Built a scalable, high-performance front-end for cloud software using \textbf{Vite, React, TypeScript, TanStack Query, Zustand, and Docker} in collaboration with Cloud Engineers.
+    \item Led development and maintenance of \textbf{alphaco.ai}, contributing to product growth and supporting its successful investment raise.
+    \item Delivered robust testing by implementing \textbf{E2E and component tests (Playwright, Vitest)}, building \textbf{FastAPI} routes, and contributing to Python data-ingestion pipelines.
+}
+
+\experience{Full Stack Developer Intern}{Fuzzynodes}{Dec 2024 -- June 2025}{Australia (Remote)}{
+    \item Engineered and deployed high-performance web applications - a \textbf{multi-restaurant platform} and admin dashboard  using \textbf{Next.js, Node.js, Express, TypeScript, Bun, and Elysia} making 20+ REST API endpoints. % TODO: confirm these bullets belong to ORIM Advisors
+    \item Set up \textbf{CI/CD pipelines} using Docker, GitHub Actions, and AWS Amplify, ensuring a smooth and reliable deployment architecture.
+    \item Integrated \textbf{OpenAI GPT-4} for critical backend functions including intelligent profanity detection and automated user-blacklisting auto-fill, optimizing security and interaction.
+}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%    PROJECTS
+%----------------------------------------------------------------------------------------
+\vspace{-1pt}
+\begin{rSection}{PROJECTS}
+\vspace{-12pt}
+
+\project{Skribbl Clone --- Real-time Multiplayer Drawing Game}{https://skribbl.iamprathamesh.xyz}{https://github.com/pr4th4meshh/skribbl}{React, TypeScript, Node.js, Socket.io}{
+    Built a real-time multiplayer drawing-and-guessing game using React, TypeScript, Node.js, Socket.io, and a custom \textbf{HTML5 Canvas engine}. Developed turn-based gameplay with \textbf{Redis-backed room state} and \textbf{BullMQ queues} for timers, word reveals, and round management across concurrent sessions. Implemented \textbf{JWT auth with refresh-token rotation} and Zustand \& TanStack Query for efficient client- and server-state management.
+}
+\project{Presssence --- Portfolio Builder}{https://presssence.iamprathamesh.xyz}{https://github.com/pr4th4meshh/presssence}{Next.js, TypeScript, MongoDB, Prisma}{
+    Built Presssence, a full-stack portfolio builder using Next.js, TypeScript, MongoDB, Prisma, and \textbf{NextAuth} with Google OAuth and credentials-based authentication. Developed a 3-step onboarding flow, shareable portfolios, inline edits, \textbf{drag-and-drop section reordering}, and Cloudinary media uploads. Implemented dynamic routing, \textbf{SEO metadata}, Framer animations, and \textbf{Zod validation} for a recruiter-focused user experience.
+}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%    EDUCATION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+{\bf Bhavan's College, University of Mumbai} \hfill {Aug 2019 -- May 2022}\\
+Bachelor of Commerce (B.Com)
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+% SKILLS
+%----------------------------------------------------------------------------------------
+\vspace{-5pt}
+\begin{rSection}{SKILLS}
+\vspace{-2pt}
+
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{2ex}} l @{\hspace{4ex}} >{\bfseries}l @{\hspace{2ex}} l @{}}
+    Languages: & JavaScript, TypeScript, Python  & Databases: & MongoDB, PostgreSQL, Redis \\
+    Frontend: & React, Next.js, Tailwind, Redux, Zustand, TanStack  & Testing:  & Vitest, Playwright, PWAs \\
+    Backend: & Node.js, Express, FastAPI, Bun, Elysia, Prisma    & 
+    Mobile: & React Native, Expo, Nativewind  \\
+    DevOps: & Docker, AWS (EC2, S3, ECR) \\
+    Tools: & Git, Insomnia, Postman, Jira, Slack, Miro, OpenAI    & & \\
+    \end{tabular}\\
+    \end{rSection}
+
+\end{document}
