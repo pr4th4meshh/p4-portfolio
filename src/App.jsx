@@ -9,6 +9,7 @@ import SkillsSection from "./components/TechStack"
 import LoadingScreen from "./components/LoadingScreen"
 import "animate.css"
 import ExperienceSection from "./components/Experience"
+import GithubContributions from "./components/GithubContributions"
 
 const App = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -45,6 +46,7 @@ const App = () => {
           <Hero />
           <About />
           <Projects />
+          <GithubContributions />
           <ExperienceSection />
           <SkillsSection />
           <Footer />

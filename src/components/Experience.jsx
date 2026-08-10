@@ -4,9 +4,9 @@ const experiences = [
     company: "Prana India, Bengaluru, Karnataka IN // Onsite",
     period: "September 2025 - Present",
     description: [
-      "Co-engineered all backend services for Prana India—from auth to consultations—along with DB design using PostgreSQL, Prisma, Node/TypeScript, Docker, AWS, Zod, and WebSockets.",
-      "Built the entire consultation FrontEnd with React-TypeScript, Zustand, Zod, TanStack Query, and WebSockets for real-time chat and call interactions.",
-      "Built a URL shortener (FastAPI + Jinja) service and set up CI/CD pipelines using Docker, GitHub Actions, and AWS Amplify.",
+      "Led development of the customer-facing pranaindia.com, enabling the company's transition from offline to online, serving 400K+ weekly active users and contributing to ₹22.85M+ cumulative revenue (Jan–Jul 2026).",
+      "Co-engineered backend services using Node.js, TypeScript, PostgreSQL, Prisma, Docker, AWS, Zod, and WebSockets, building authentication, consultation workflows, and scalable APIs.",
+      "Built the complete consultation platform with React, TypeScript, Zustand, Zod, TanStack Query, and WebSockets, implementing real-time chat, in-app voice calls, push notifications, analytics dashboards, and replacing third-party communication APIs with an in-house solution.",
     ],
   },
   {

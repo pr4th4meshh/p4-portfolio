@@ -4,7 +4,7 @@ const Hero = () => {
       <main className="flex-grow flex items-center justify-center relative ">
         <div className="z-10 text-center">
           <h1 className="text-md sm:text-2xl mb-4 leading-tight font-pop animate__animated animate__fadeInLeft">
-            Front-End Developer based in 📍Mumbai.
+            Full-Stac Developer based in 📍Mumbai.
           </h1>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight animate__animated animate__fadeInLeft">
             I enjoy building
