@@ -1,12 +1,12 @@
 const Hero = () => {
   return (
-    <section className="bg-primary text-white min-h-screen flex flex-col px-3 md:px-0">
+    <section className="bg-primary text-white min-h-screen min-h-[100svh] flex flex-col px-5 sm:px-8">
       <main className="flex-grow flex items-center justify-center relative ">
         <div className="z-10 text-center">
           <h1 className="text-md sm:text-2xl mb-4 leading-tight font-pop animate__animated animate__fadeInLeft">
             Full-Stack Developer based in 📍Mumbai.
           </h1>
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight animate__animated animate__fadeInLeft">
+          <h1 className="text-4xl xs:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight animate__animated animate__fadeInLeft">
             I enjoy building
             <br />
             <span className="italic">web</span> and{" "}

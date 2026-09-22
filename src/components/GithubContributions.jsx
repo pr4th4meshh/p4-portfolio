@@ -176,7 +176,7 @@ const GithubContributions = () => {
                           ) : (
                             <div
                               key={`${weekIndex}-${dayIndex}`}
-                              className="w-[11px] h-[11px]"
+                              className="w-full aspect-square"
                             />
                           )
                         )}

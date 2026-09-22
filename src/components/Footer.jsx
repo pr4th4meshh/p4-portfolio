@@ -17,7 +17,7 @@ const Footer = () => {
       id="footer"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-baseline gap-10 md:gap-4 mb-8 text-xl">
+        <div className="flex flex-col md:flex-row md:flex-wrap justify-between items-baseline gap-10 md:gap-8 mb-8 text-lg lg:text-xl">
           <div className="text-start space-y-0">
             <p className="font-pop">
               Feel free to drop me a line with project{" "}
@@ -90,7 +90,7 @@ const Footer = () => {
         <div className="text-center pt-20 pb-16">
           <a
             href="mailto:prathameshasolkar17@gmail.com?subject=Inquiry via portfolio"
-            className="text-white text-6xl md:text-[154px] font-normal font-pop tracking-normal text-center animate-pulse cursor-pointer"
+            className="text-white text-[clamp(2.25rem,10vw,154px)] leading-tight font-normal font-pop tracking-normal text-center animate-pulse cursor-pointer"
           >
             GET IN TOUCH &#8599;
           </a>

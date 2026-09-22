@@ -10,8 +10,8 @@ const Navbar = () => {
   }
   return (
     <nav className="bg-primary text-white fixed top-0 left-0 w-full z-50 bg-transparent mix-blend-difference">
-      <header className="px-0 py-6 md:py-6 container mx-auto flex justify-between items-center animate__animated animate__fadeInDown animate__slower">
-        <span className="text-lg md:text-xl font-pop">
+      <header className="py-6 container mx-auto flex justify-between items-center animate__animated animate__fadeInDown animate__slower">
+        <span className="text-base xs:text-lg md:text-xl font-pop">
           hi, iam @pr4th4meshh
         </span>
         <div className="flex items-center gap-2 md:gap-4">

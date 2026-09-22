@@ -33,7 +33,7 @@ const LoadingScreen = ({ setLoading }) => {
     <motion.div
       className="fixed inset-0 bg-primary flex items-center justify-center z-50"
       initial={{ opacity: 1 }}
-      exit={{ opacity: 1, x: 2000 }}
+      exit={{ opacity: 1, x: "100%" }}
       transition={{ duration: 1 }}
     >
       <AnimatePresence mode="wait">

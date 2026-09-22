@@ -122,7 +122,7 @@ const SkillsSection = () => {
           Tech Stack
         </h1>
 
-        <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 place-items-center">
+        <div className="grid grid-cols-3 ss:grid-cols-6 gap-6 sm:gap-8 place-items-center">
           {skills.map(({ label, Icon }, index) => (
             <div
               key={index}
@@ -139,7 +139,7 @@ const SkillsSection = () => {
         </div>
       </div>
 
-      <h1 className="font-pop text-center flex justify-center items-center flex-wrap text-5xl md:text-9xl pt-64">
+      <h1 className="font-pop text-center flex justify-center items-center flex-wrap text-5xl sm:text-7xl md:text-9xl pt-32 md:pt-64 px-5">
         THAT'S <span className="animate-spin-slow">✹</span> IT
       </h1>
     </div>

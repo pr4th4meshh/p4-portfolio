@@ -6,6 +6,17 @@ module.exports = {
   ],
   mode: 'jit',
   theme: {
+    // Fluid container: full width with side gutters, capped at 1440px on
+    // wide screens instead of snapping to every breakpoint width.
+    container: {
+      center: true,
+      // responsive gutters live in src/index.css (padding keys here only
+      // apply at container.screens, which we cap to a single max width)
+      padding: "1.25rem",
+      screens: {
+        max: "1440px",
+      },
+    },
     extend: {
       animation: {
         "spin-slow": "spin 5s linear infinite",
