@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: Pop;
-  src: url(../src/assets/fonts/Poppins/Poppins-Light.ttf);
+  src: url("../assets/fonts/Poppins/Poppins-Light.ttf");
 }
 
 * {
@@ -33,4 +33,14 @@
       padding-right: 4rem;
     }
   }
+}
+
+/* While the intro loader is up, lock scroll and hold the page's entrance
+   animations so they play as the loader slides away (the React version
+   only mounted the page after the loader finished). */
+html.is-loading {
+  overflow: hidden;
+}
+html.is-loading .animate__animated {
+  animation-play-state: paused;
 }
