@@ -7,10 +7,15 @@ import poppins from "../assets/fonts/Poppins/Poppins-Light.woff2?url"
 interface Props {
   title?: string
   description?: string
+  /** Page renders <LoadingScreen /> and should start in the loading state. */
+  intro?: boolean
+  noindex?: boolean
 }
 
 const {
   title = "Prathamesh's Portfolio",
+  intro = true,
+  noindex = false,
   description = "Prathamesh's or pr4th4mesh's portfolio showcasing web development projects, including React, Next.js, and TypeScript. Explore creative and technical work from frontend to backend.",
 } = Astro.props
 
@@ -19,7 +24,7 @@ const ogImage = new URL("/og.png", Astro.site)
 ---
 
 <!doctype html>
-<html lang="en" class="is-loading">
+<html lang="en" class={intro ? "is-loading" : undefined}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,6 +53,9 @@ const ogImage = new URL("/og.png", Astro.site)
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    {noindex && <meta name="robots" content="noindex" />}
+    {
+      intro && (
     <script is:inline>
       // Decide before first paint whether to play the intro: once per
       // session, and never for people who prefer reduced motion.
@@ -63,6 +71,8 @@ const ogImage = new URL("/og.png", Astro.site)
         }
       })()
     </script>
+      )
+    }
     <noscript>
       <style>
         #loading-screen { display: none !important; }
