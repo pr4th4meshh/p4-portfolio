@@ -2,6 +2,7 @@
 import "animate.css"
 import "../styles/global.css"
 import favicon from "../assets/P4logo.png"
+import poppins from "../assets/fonts/Poppins/Poppins-Light.woff2?url"
 
 interface Props {
   title?: string
@@ -22,6 +23,7 @@ const ogImage = new URL("/og.png", Astro.site)
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href={poppins} as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/png" href={favicon.src} />
     <title>{title}</title>
     <meta name="description" content={description} />

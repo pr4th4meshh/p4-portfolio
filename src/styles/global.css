@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: Pop;
-  src: url("../assets/fonts/Poppins/Poppins-Light.ttf");
+  src: url("../assets/fonts/Poppins/Poppins-Light.woff2") format("woff2");
+  font-display: swap;
 }
 
 * {
