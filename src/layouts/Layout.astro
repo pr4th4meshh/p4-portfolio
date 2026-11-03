@@ -46,6 +46,21 @@ const ogImage = new URL("/og.png", Astro.site)
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <script is:inline>
+      // Decide before first paint whether to play the intro: once per
+      // session, and never for people who prefer reduced motion.
+      ;(function () {
+        var seen = false
+        try {
+          seen = sessionStorage.getItem("intro-seen") === "1"
+          sessionStorage.setItem("intro-seen", "1")
+        } catch (e) {}
+        if (seen || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.remove("is-loading")
+          document.documentElement.classList.add("skip-intro")
+        }
+      })()
+    </script>
     <noscript>
       <style>
         #loading-screen { display: none !important; }

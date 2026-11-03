@@ -44,3 +44,6 @@ html.is-loading {
 html.is-loading .animate__animated {
   animation-play-state: paused;
 }
+html.skip-intro #loading-screen {
+  display: none;
+}
