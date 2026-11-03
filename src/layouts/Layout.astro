@@ -12,6 +12,9 @@ const {
   title = "Prathamesh's Portfolio",
   description = "Prathamesh's or pr4th4mesh's portfolio showcasing web development projects, including React, Next.js, and TypeScript. Explore creative and technical work from frontend to backend.",
 } = Astro.props
+
+const canonical = new URL(Astro.url.pathname, Astro.site)
+const ogImage = new URL("/og.png", Astro.site)
 ---
 
 <!doctype html>
@@ -27,6 +30,22 @@ const {
       content="Prathamesh or pr4th4mesh's, web development, portfolio, React, Next.js, TypeScript, TailwindCSS, MongoDB, frontend, backend, full stack developer"
     />
     <meta name="author" content="pr4th4mesh" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Social share previews (LinkedIn, WhatsApp, X, Slack, …) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Prathamesh's Portfolio" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="I enjoy building web and mobile products — Prathamesh, Full-Stack Developer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <noscript>
       <style>
         #loading-screen { display: none !important; }
