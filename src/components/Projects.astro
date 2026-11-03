@@ -1,0 +1,154 @@
+---
+import { Image } from "astro:assets"
+import pribblImage from "../assets/shopping.jpeg"
+import freelanceImage from "../assets/freelancecms.jpeg"
+import pranaImage from "../assets/doctors.jpeg"
+import presssenceImage from "../assets/skincare.jpeg"
+import respondlyImage from "../assets/forms.jpeg"
+
+const projects = [
+  {
+    number: "01",
+    title: "Pribbl",
+    description: "SKRIBBL CLONE",
+    image: pribblImage,
+    tech: ["React", "TypeScript", "Node.js", "Redis", "PostgreSQL", "Websockets", "Zustand", "Tanstack"],
+    link: "https://github.com/pr4th4meshh/skribbl",
+  },
+  {
+    number: "02",
+    title: "Freelance CMS",
+    description: "CONTENT MANAGEMENT",
+    image: freelanceImage,
+    tech: ["React", "TypeScript", "RTK Query", "TailwindCSS"],
+    link: "https://docs.google.com/document/d/1nLHX2pKMJMujqavqwANDVwAAnNEQl5c5j_nFy50KvsY/edit?usp=sharing",
+  },
+  {
+    number: "03",
+    title: "Prana Mobile",
+    description: "ASTROLOGY CONSULTATION APP",
+    image: pranaImage,
+    tech: ["React Native", "TypeScript", "Expo", "Expo Router"],
+    link: "https://github.com/pr4th4meshh/astrology-mobile-app",
+  },
+  {
+    number: "04",
+    title: "Presssence",
+    description: "PRESSSENCE PORTFOLIO BUILDER",
+    image: presssenceImage,
+    tech: ["Next.js", "TypeScript", "MongoDB", "Mongoose", "TailwindCSS"],
+    link: "https://github.com/pr4th4meshh/presssence",
+  },
+  {
+    number: "05",
+    title: "Respondly",
+    description: "RESPONSE COLLECTOR",
+    image: respondlyImage,
+    tech: ["Next.js", "TypeScript", "MongoDB", "Mongoose", "TailwindCSS"],
+    link: "https://github.com/pr4th4meshh/respondly",
+  },
+]
+---
+
+<section class="bg-primary pt-36 pb-10 min-h-screen" id="projects">
+  <div class="container mx-auto">
+    <h1 class="text-2xl font-bold uppercase tracking-wide mb-12 font-pop text-white">projects</h1>
+
+    <div class="project-list">
+      {
+        projects.map((project) => (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-row relative overflow-hidden block border-b border-gray-700 cursor-none"
+          >
+            {/* Desktop: row background image, revealed on hover */}
+            <div class="project-bg hidden md:block absolute inset-0 z-0">
+              <Image src={project.image} alt="" aria-hidden="true" class="w-full h-full object-cover" width={1440} widths={[1440, 2560]} sizes="min(100vw, 1440px)" quality={70} />
+              {/* semi-transparent overlay — light enough for mix-blend-difference to read */}
+              <div class="absolute inset-0 bg-zinc-950/55" />
+            </div>
+
+            {/* ── Mobile layout (< 1060px) ── */}
+            <div class="relative z-10 flex items-center gap-4 py-6 md:hidden">
+              <div class="flex-1 min-w-0">
+                <div class="flex items-start justify-between gap-3 mb-2">
+                  <h2 class="text-3xl ss:text-4xl font-pop text-white leading-tight">{project.title}</h2>
+                  <span class="text-white text-xl shrink-0 mt-1">&#8599;</span>
+                </div>
+                <p class="text-gray-400 text-xs font-pop uppercase tracking-widest mb-2">{project.description}</p>
+                <p class="text-gray-500 text-xs font-pop leading-relaxed">{project.tech.join(" · ")}</p>
+              </div>
+
+              <div class="shrink-0 w-24 h-16 ss:w-32 ss:h-20 rounded-xl overflow-hidden">
+                <Image src={project.image} alt={project.title} class="w-full h-full object-cover" width={256} />
+              </div>
+            </div>
+
+            {/* ── Desktop layout (≥ 1060px) ──
+                mix-blend-difference keeps the white text readable on both the
+                plain dark background and the hover image. */}
+            <div class="relative z-10 hidden md:flex items-center justify-between w-full gap-4 py-10 mix-blend-difference">
+              <div class="flex items-center gap-10 flex-1 min-w-0">
+                <span class="project-fade text-white text-sm font-pop w-8 shrink-0">{project.number}</span>
+
+                <div class="min-w-0">
+                  <h2 class="project-fade project-title text-5xl lg:text-6xl font-pop text-white leading-tight">
+                    {project.title}
+                  </h2>
+                  {/* Always rendered — opacity only, so row height never shifts */}
+                  <p class="project-tech text-white text-sm font-pop mt-3 tracking-widest">{project.tech.join(" · ")}</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 shrink-0">
+                <span class="project-fade project-desc text-white text-xs font-pop uppercase tracking-widest">
+                  {project.description}
+                </span>
+                <span class="project-fade project-arrow text-white text-2xl font-pop">&#8599;</span>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-bg {
+    opacity: 0;
+    transition: opacity 0.35s ease-out;
+  }
+  .project-fade,
+  .project-title,
+  .project-arrow {
+    transition: opacity 0.25s, transform 0.25s ease-out;
+  }
+  .project-desc {
+    opacity: 0.6;
+  }
+  .project-tech {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .project-row:hover .project-bg {
+    opacity: 1;
+  }
+  .project-row:hover .project-title {
+    transform: translateX(10px);
+  }
+  .project-row:hover .project-arrow {
+    transform: translateX(6px);
+  }
+  .project-row:hover .project-tech {
+    opacity: 0.7;
+  }
+
+  /* Dim every other row while one is hovered */
+  .project-list:hover .project-row:not(:hover) .project-fade {
+    opacity: 0.15;
+  }
+</style>
