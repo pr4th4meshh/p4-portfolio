@@ -25,6 +25,11 @@ const greetings = ["Hello", "Bonjour", "Grüezi", "Ciao", "こんにちは", "Ho
 
 <script>
   const screen = document.getElementById("loading-screen")!
+
+  // Layout.astro's head script marks repeat / reduced-motion visits.
+  const skip = document.documentElement.classList.contains("skip-intro")
+  if (skip) screen.remove()
+
   const label = screen.querySelector<HTMLElement>("[data-greeting]")!
   const greetings: string[] = JSON.parse(screen.dataset.greetings!)
 
@@ -41,5 +46,5 @@ const greetings = ["Hello", "Bonjour", "Grüezi", "Ciao", "こんにちは", "Ho
     }, holdFor(i))
   }
 
-  step(0)
+  if (!skip) step(0)
 </script>

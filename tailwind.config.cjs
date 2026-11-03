@@ -28,8 +28,6 @@ module.exports = {
       },
       fontFamily: {
         pop: ['Poppins', 'sans-serif'],
-        gag: ['Gag'],
-        dolce: ['Dolce']
       },
       minHeight: {
         "screen-height": "calc(100vh - 80px)"

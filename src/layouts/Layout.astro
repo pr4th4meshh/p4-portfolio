@@ -2,23 +2,33 @@
 import "animate.css"
 import "../styles/global.css"
 import favicon from "../assets/P4logo.png"
+import poppins from "../assets/fonts/Poppins/Poppins-Light.woff2?url"
 
 interface Props {
   title?: string
   description?: string
+  /** Page renders <LoadingScreen /> and should start in the loading state. */
+  intro?: boolean
+  noindex?: boolean
 }
 
 const {
   title = "Prathamesh's Portfolio",
+  intro = true,
+  noindex = false,
   description = "Prathamesh's or pr4th4mesh's portfolio showcasing web development projects, including React, Next.js, and TypeScript. Explore creative and technical work from frontend to backend.",
 } = Astro.props
+
+const canonical = new URL(Astro.url.pathname, Astro.site)
+const ogImage = new URL("/og.png", Astro.site)
 ---
 
 <!doctype html>
-<html lang="en" class="is-loading">
+<html lang="en" class={intro ? "is-loading" : undefined}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href={poppins} as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/png" href={favicon.src} />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -27,6 +37,42 @@ const {
       content="Prathamesh or pr4th4mesh's, web development, portfolio, React, Next.js, TypeScript, TailwindCSS, MongoDB, frontend, backend, full stack developer"
     />
     <meta name="author" content="pr4th4mesh" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Social share previews (LinkedIn, WhatsApp, X, Slack, …) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Prathamesh's Portfolio" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="I enjoy building web and mobile products — Prathamesh, Full-Stack Developer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    {noindex && <meta name="robots" content="noindex" />}
+    {
+      intro && (
+    <script is:inline>
+      // Decide before first paint whether to play the intro: once per
+      // session, and never for people who prefer reduced motion.
+      ;(function () {
+        var seen = false
+        try {
+          seen = sessionStorage.getItem("intro-seen") === "1"
+          sessionStorage.setItem("intro-seen", "1")
+        } catch (e) {}
+        if (seen || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.remove("is-loading")
+          document.documentElement.classList.add("skip-intro")
+        }
+      })()
+    </script>
+      )
+    }
     <noscript>
       <style>
         #loading-screen { display: none !important; }

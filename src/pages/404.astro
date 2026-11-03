@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Cursor from "../components/Cursor.astro"
+---
+
+<Layout title="404 — Prathamesh's Portfolio" description="This page doesn't exist." intro={false} noindex>
+  <div class="overflow-hidden cursor-none">
+    <Cursor />
+    <section class="bg-primary text-white min-h-screen min-h-[100svh] flex flex-col items-center justify-center text-center px-5">
+      <p class="text-md sm:text-2xl mb-4 font-pop animate__animated animate__fadeInLeft">~ page not found</p>
+      <h1 class="text-[clamp(6rem,25vw,18rem)] leading-none font-bold animate__animated animate__fadeInLeft">404</h1>
+      <p class="text-xl sm:text-2xl mt-6 mb-12 animate__animated animate__fadeInUp">
+        This page doesn't exist, <span class="italic">yet</span>.
+      </p>
+      <a href="/" class="text-lg md:text-xl uppercase font-pop hover:text-gray-300 hover:underline underline-offset-4 cursor-none animate__animated animate__fadeInUp">
+        &#8592; back home
+      </a>
+    </section>
+  </div>
+</Layout>
