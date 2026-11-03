@@ -1,0 +1,166 @@
+---
+const USERNAME = "pr4th4meshh"
+const PROFILE_URL = `https://github.com/${USERNAME}`
+
+// Grayscale replacement for GitHub's green scale — index === contribution level
+const LEVEL_COLORS = ["#18181b", "#3f3f46", "#71717a", "#a1a1aa", "#e4e4e7"]
+const DAY_LABELS = ["", "Mon", "", "Wed", "", "Fri", ""]
+---
+
+<section class="bg-primary pt-24 pb-10" id="contributions" data-username={USERNAME}>
+  <div class="container mx-auto">
+    <div class="flex flex-col ss:flex-row ss:items-end ss:justify-between gap-2 mb-12">
+      <h1 class="text-2xl font-bold uppercase tracking-wide font-pop text-white">contributions</h1>
+      <a
+        href={PROFILE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-gray-400 hover:text-white transition-colors text-xs font-pop uppercase tracking-widest cursor-none"
+      >
+        @{USERNAME} &#8599;
+      </a>
+    </div>
+
+    <p data-error hidden class="text-gray-500 font-pop text-sm">
+      Could not load contributions right now —
+      <a href={PROFILE_URL} target="_blank" rel="noopener noreferrer" class="text-white underline cursor-none">
+        view them on GitHub
+      </a>.
+    </p>
+
+    <div data-graph>
+      <div class="overflow-x-auto pb-2">
+        {/* Cells are fluid (flex-1 + aspect-square) so the grid spans the full
+            container width; min-w keeps them legible and scrollable on narrow screens. */}
+        <div class="flex gap-2 w-full min-w-[620px]">
+          {/* weekday gutter */}
+          <div class="flex flex-col gap-[3px] pt-[18px] shrink-0 w-6">
+            {
+              DAY_LABELS.map((label) => (
+                <span class="flex-1 flex items-center text-[9px] leading-none text-gray-500 font-pop">{label}</span>
+              ))
+            }
+          </div>
+
+          <div class="flex-1 min-w-0">
+            {/* month ruler — label sits above the week a new month starts in */}
+            <div data-months class="flex gap-[3px] h-[18px]"></div>
+            {/* the grid itself, filled in client-side */}
+            <div data-weeks class="flex gap-[3px]"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col ss:flex-row ss:items-center ss:justify-center gap-3 ss:gap-6 mt-6">
+        <p data-total class="text-gray-400 text-xs font-pop uppercase tracking-widest">loading…</p>
+
+        <div class="flex items-center gap-[3px]">
+          <span class="text-gray-500 text-[10px] font-pop mr-1">Less</span>
+          {LEVEL_COLORS.map((color) => <span class="contrib-cell w-[11px] h-[11px] rounded-[2px]" style={{ backgroundColor: color }} />)}
+          <span class="text-gray-500 text-[10px] font-pop ml-1">More</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  .contrib-cell {
+    outline: 1px solid rgba(255, 255, 255, 0.04);
+    outline-offset: -1px;
+  }
+  .contrib-cell-in {
+    animation: contrib-fade-in 0.3s both;
+  }
+  @keyframes contrib-fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  type Day = { date: string; count: number; level: number }
+
+  const LEVEL_COLORS = ["#18181b", "#3f3f46", "#71717a", "#a1a1aa", "#e4e4e7"]
+  const MONTH_LABELS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+  const section = document.getElementById("contributions")!
+  const username = section.dataset.username!
+
+  // Chop a flat day list into calendar weeks (columns), padding the first
+  // week so the grid always starts on a Sunday row.
+  const toWeeks = (days: Day[]) => {
+    if (!days.length) return []
+    const weeks: (Day | null)[][] = []
+    let current: (Day | null)[] = new Array(new Date(days[0].date).getUTCDay()).fill(null)
+    for (const day of days) {
+      current.push(day)
+      if (current.length === 7) {
+        weeks.push(current)
+        current = []
+      }
+    }
+    if (current.length) weeks.push([...current, ...new Array(7 - current.length).fill(null)])
+    return weeks
+  }
+
+  const formatDate = (date: string) =>
+    new Date(date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
+
+  const el = (className: string) => {
+    const node = document.createElement("div")
+    node.className = className
+    return node
+  }
+
+  const render = (days: Day[], total: number) => {
+    const weeks = toWeeks(days)
+    const months = section.querySelector("[data-months]")!
+    const grid = section.querySelector("[data-weeks]")!
+
+    weeks.forEach((week, i) => {
+      const first = week.find(Boolean)
+      const prevFirst = weeks[i - 1]?.find(Boolean)
+      const month = first && new Date(first.date).getUTCMonth()
+      const prevMonth = prevFirst && new Date(prevFirst.date).getUTCMonth()
+
+      const slot = document.createElement("span")
+      slot.className = "flex-1 text-[9px] leading-none text-gray-500 font-pop relative"
+      if (first && (i === 0 || month !== prevMonth)) {
+        const label = document.createElement("span")
+        label.className = "absolute left-0 top-0 whitespace-nowrap"
+        label.textContent = MONTH_LABELS[month as number]
+        slot.append(label)
+      }
+      months.append(slot)
+
+      const column = el("flex-1 flex flex-col gap-[3px]")
+      for (const day of week) {
+        if (!day) {
+          column.append(el("w-full aspect-square"))
+          continue
+        }
+        const cell = el("contrib-cell contrib-cell-in w-full aspect-square rounded-[2px]")
+        cell.style.backgroundColor = LEVEL_COLORS[day.level] ?? LEVEL_COLORS[0]
+        cell.style.animationDelay = `${Math.min(i * 0.008, 0.5)}s`
+        cell.title = `${day.count} contribution${day.count === 1 ? "" : "s"} on ${formatDate(day.date)}`
+        column.append(cell)
+      }
+      grid.append(column)
+    })
+
+    section.querySelector("[data-total]")!.textContent = `${total.toLocaleString()} contributions in the last year`
+  }
+
+  fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`)
+    .then((res) => {
+      if (!res.ok) throw new Error(res.statusText)
+      return res.json()
+    })
+    .then((json) => render(json.contributions ?? [], json.total?.lastYear ?? 0))
+    .catch(() => {
+      section.querySelector<HTMLElement>("[data-graph]")!.hidden = true
+      section.querySelector<HTMLElement>("[data-error]")!.hidden = false
+    })
+</script>

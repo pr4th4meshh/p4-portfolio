@@ -1,20 +1,27 @@
-* PRATHAMESH'S PORTFOLIO WEBSITE *
+# Prathamesh's Portfolio
 
-This portfolio website is built using React JS, Tailwind CSS, Animate CSS, and Formspree to showcase your work and personal information.
+Personal portfolio of [@pr4th4meshh](https://github.com/pr4th4meshh), built with [Astro](https://astro.build), Tailwind CSS and Animate.css.
 
-* Features:- 
+The site is fully static: every section renders to HTML at build time, and only a few tiny scripts ship to the browser (intro loader, custom cursor, GitHub contribution graph, local clock).
 
-> Fully responsive design, optimized for all screen sizes
-> Clean and modern user interface designed with Tailwind CSS
-> Animated effects with Animate CSS for an engaging user experience
-> Contact form powered by Formspree for easy communication with visitors
+## Development
 
-* Customizing Your Portfolio:- 
-The code for the website is well-documented and easy to customize. You can change the content, design, and add your own projects to showcase.
+Requires Node.js 24 (Astro needs >= 22.23).
 
-* Deployment:- 
-This website is deployed on the internet. Visit the link uploaded on the Github repository to view the project live.
+```bash
+npm install
+npm run dev      # dev server at http://localhost:4321
+npm run build    # static build -> dist/
+npm run preview  # serve the build locally
+```
 
-* Contact:-
-If you have any questions or issues with the website, feel free to open an issue in the repository or send an email to 
-prathameshasolkar17@gmail.com .
+## Structure
+
+```
+src/
+  pages/index.astro      single page, section order lives here
+  layouts/Layout.astro   <head>, meta tags, global styles
+  components/*.astro     one component per section
+  styles/global.css      Tailwind layers, Poppins font, loader state
+  assets/                images, fonts, resume.pdf
+```

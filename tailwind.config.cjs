@@ -1,8 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,jsx}",
+    "./src/**/*.{astro,html,js,ts}",
   ],
   mode: 'jit',
   theme: {
@@ -10,7 +9,7 @@ module.exports = {
     // wide screens instead of snapping to every breakpoint width.
     container: {
       center: true,
-      // responsive gutters live in src/index.css (padding keys here only
+      // responsive gutters live in src/styles/global.css (padding keys here only
       // apply at container.screens, which we cap to a single max width)
       padding: "1.25rem",
       screens: {

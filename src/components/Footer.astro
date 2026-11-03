@@ -1,0 +1,81 @@
+---
+import resume from "../assets/resume.pdf?url"
+
+const socials = [
+  { label: "GITHUB", href: "https://github.com/pr4th4meshh" },
+  { label: "LINKEDIN", href: "https://www.linkedin.com/in/prathamesh-asolkar/" },
+  { label: "INSTAGRAM", href: "https://instagram.com/pr4th4meshh" },
+]
+---
+
+<footer class="bg-primary text-white py-2 pt-48 md:pt-44 px-0" id="footer">
+  <div class="container mx-auto">
+    <div class="flex flex-col md:flex-row md:flex-wrap justify-between items-baseline gap-10 md:gap-8 mb-8 text-lg lg:text-xl">
+      <div class="text-start space-y-0">
+        <p class="font-pop">
+          Feel free to drop me a line with project <br class="md:block hidden" /> details. It would be a pleasure
+          to help you <br class="md:block hidden" /> with your website!
+        </p>
+      </div>
+      <div class="space-x-0">
+        {
+          socials.map(({ label, href }) => (
+            <a rel="noopener" target="_blank" href={href} class="block hover:text-gray-300 hover:underline underline-offset-4 font-pop">
+              {label}
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="space-y-0">
+        <a
+          href={resume}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block hover:text-gray-300 hover:underline underline-offset-4 font-pop cursor-pointer"
+        >
+          VIEW RESUME
+        </a>
+      </div>
+      <div>
+        <span class="font-pop">PORTFOLIO 2025 .</span>
+        <p class="font-pop">DEVELOPED & IMAGINED</p>
+        <p class="font-pop">
+          BY <a href="https://github.com/pr4th4meshh" class="underline hover:text-gray-300 hover:underline underline-offset-4 font-pop">@pr4th4meshh</a>
+        </p>
+      </div>
+      <div>
+        <button
+          type="button"
+          data-scroll-top
+          class="block pt-8 pb-0 hover:text-gray-300 hover:underline underline-offset-4 font-pop cursor-pointer"
+        >
+          &#8593; BACK TO TOP &#8593;
+        </button>
+        <span class="text-xl uppercase font-pop cursor-pointer">MUM, IN // <span data-local-time></span></span>
+      </div>
+    </div>
+    <div class="text-center pt-20 pb-16">
+      <a
+        href="mailto:prathameshasolkar17@gmail.com?subject=Inquiry via portfolio"
+        class="text-white text-[clamp(2.25rem,10vw,154px)] leading-tight font-normal font-pop tracking-normal text-center animate-pulse cursor-pointer"
+      >
+        GET IN TOUCH &#8599;
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelector("[data-scroll-top]")?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  })
+
+  const time = document.querySelector("[data-local-time]")
+  if (time) {
+    time.textContent = new Date().toLocaleTimeString("en-US", {
+      timeZone: "Asia/Kolkata",
+      timeStyle: "short",
+    })
+  }
+</script>

@@ -1,3 +1,4 @@
+---
 const experiences = [
   {
     title: "SDE-1",
@@ -38,66 +39,43 @@ const experiences = [
       "Building custom web solutions for clients with modern technologies like React, Next.js, TypeScript, TailwindCSS, MongoDB, Mongoose, Express, Prisma, Redux Toolkit, RTK Query, Framer Motion, and more.",
   },
 ]
+---
 
-const ExperienceSection = () => {
-  return (
-    <div className="h-auto bg-primary text-white flex flex-col pt-36 pb-10">
-      <div className="container mx-auto space-y-12">
-        <h1 className="text-2xl font-bold uppercase tracking-wide mb-12 font-pop">
-          Experience
-        </h1>
+<div class="h-auto bg-primary text-white flex flex-col pt-36 pb-10">
+  <div class="container mx-auto space-y-12">
+    <h1 class="text-2xl font-bold uppercase tracking-wide mb-12 font-pop">Experience</h1>
 
-        {experiences.map((experience, index) => {
-          const isPresent = experience.period.includes("Present")
-
-          return (
-            <div
-              key={index}
-              className="border-b border-gray-600 pb-8 md:pb-12 last:border-b-0"
-            >
-              <div className="space-y-4 md:space-y-6">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4">
-                  <h2 className="text-3xl md:text-5xl font-pop">
-                    {experience.title}
-                  </h2>
-                  <div className="flex items-center gap-2 text-lg md:text-xl text-gray-300 font-pop">
-                    {isPresent && (
-                      <span className="relative flex h-3 w-3">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                      </span>
-                    )}
-                    <span>{experience.period}</span>
-                  </div>
-                </div>
-
-                <h3 className="text-xl md:text-2xl text-gray-200 font-pop">
-                  {experience.company}
-                </h3>
-
-                {Array.isArray(experience.description) ? (
-                  <div className="space-y-2">
-                    {experience.description.map((desc, descIndex) => (
-                      <p
-                        key={descIndex}
-                        className="text-base md:text-lg text-gray-300 leading-relaxed font-pop"
-                      >
-                        • {desc}
-                      </p>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-base md:text-lg text-gray-300 leading-relaxed font-pop">
-                    {experience.description}
-                  </p>
+    {
+      experiences.map((experience) => (
+        <div class="border-b border-gray-600 pb-8 md:pb-12 last:border-b-0">
+          <div class="space-y-4 md:space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4">
+              <h2 class="text-3xl md:text-5xl font-pop">{experience.title}</h2>
+              <div class="flex items-center gap-2 text-lg md:text-xl text-gray-300 font-pop">
+                {experience.period.includes("Present") && (
+                  <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
+                  </span>
                 )}
+                <span>{experience.period}</span>
               </div>
             </div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
 
-export default ExperienceSection
+            <h3 class="text-xl md:text-2xl text-gray-200 font-pop">{experience.company}</h3>
+
+            {Array.isArray(experience.description) ? (
+              <div class="space-y-2">
+                {experience.description.map((desc) => (
+                  <p class="text-base md:text-lg text-gray-300 leading-relaxed font-pop">• {desc}</p>
+                ))}
+              </div>
+            ) : (
+              <p class="text-base md:text-lg text-gray-300 leading-relaxed font-pop">{experience.description}</p>
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
