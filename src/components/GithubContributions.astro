@@ -1,13 +1,34 @@
 ---
-const USERNAME = "pr4th4meshh"
-const PROFILE_URL = `https://github.com/${USERNAME}`
+import {
+  USERNAME,
+  LEVEL_COLORS,
+  fetchContributions,
+  toWeeks,
+  monthLabels,
+  cellColor,
+  cellTitle,
+  totalLabel,
+  signature,
+  type Contributions,
+} from "../scripts/contributions"
 
-// Grayscale replacement for GitHub's green scale — index === contribution level
-const LEVEL_COLORS = ["#18181b", "#3f3f46", "#71717a", "#a1a1aa", "#e4e4e7"]
+const PROFILE_URL = `https://github.com/${USERNAME}`
 const DAY_LABELS = ["", "Mon", "", "Wed", "", "Fri", ""]
+
+// Fetched once at build time so the graph is in the HTML; the client script
+// refreshes it. If the API is down during the build, the client fills it in.
+let data: Contributions | null = null
+try {
+  data = await fetchContributions()
+} catch (err) {
+  console.warn(`[contributions] build-time fetch failed, falling back to client: ${err}`)
+}
+
+const weeks = toWeeks(data?.days ?? [])
+const months = monthLabels(weeks)
 ---
 
-<section class="bg-primary pt-24 pb-10" id="contributions" data-username={USERNAME}>
+<section class="bg-primary pt-24 pb-10" id="contributions" data-signature={data ? signature(data) : ""}>
   <div class="container mx-auto">
     <div class="flex flex-col ss:flex-row ss:items-end ss:justify-between gap-2 mb-12">
       <h1 class="text-2xl font-bold uppercase tracking-wide font-pop text-white">contributions</h1>
@@ -44,15 +65,44 @@ const DAY_LABELS = ["", "Mon", "", "Wed", "", "Fri", ""]
 
           <div class="flex-1 min-w-0">
             {/* month ruler — label sits above the week a new month starts in */}
-            <div data-months class="flex gap-[3px] h-[18px]"></div>
-            {/* the grid itself, filled in client-side */}
-            <div data-weeks class="flex gap-[3px]"></div>
+            <div data-months class="flex gap-[3px] h-[18px]">
+              {
+                months.map((label) => (
+                  <span class="flex-1 text-[9px] leading-none text-gray-500 font-pop relative">
+                    {label && <span class="absolute left-0 top-0 whitespace-nowrap">{label}</span>}
+                  </span>
+                ))
+              }
+            </div>
+
+            {/* the grid itself */}
+            <div data-weeks class="flex gap-[3px]">
+              {
+                weeks.map((week, i) => (
+                  <div class="flex-1 flex flex-col gap-[3px]">
+                    {week.map((day) =>
+                      day ? (
+                        <div
+                          class="contrib-cell contrib-cell-in w-full aspect-square rounded-[2px]"
+                          style={{ backgroundColor: cellColor(day), animationDelay: `${Math.min(i * 0.008, 0.5)}s` }}
+                          title={cellTitle(day)}
+                        />
+                      ) : (
+                        <div class="w-full aspect-square" />
+                      )
+                    )}
+                  </div>
+                ))
+              }
+            </div>
           </div>
         </div>
       </div>
 
       <div class="flex flex-col ss:flex-row ss:items-center ss:justify-center gap-3 ss:gap-6 mt-6">
-        <p data-total class="text-gray-400 text-xs font-pop uppercase tracking-widest">loading…</p>
+        <p data-total class="text-gray-400 text-xs font-pop uppercase tracking-widest">
+          {data ? totalLabel(data.total) : "loading…"}
+        </p>
 
         <div class="flex items-center gap-[3px]">
           <span class="text-gray-500 text-[10px] font-pop mr-1">Less</span>
@@ -80,86 +130,70 @@ const DAY_LABELS = ["", "Mon", "", "Wed", "", "Fri", ""]
 </style>
 
 <script>
-  type Day = { date: string; count: number; level: number }
-
-  const LEVEL_COLORS = ["#18181b", "#3f3f46", "#71717a", "#a1a1aa", "#e4e4e7"]
-  const MONTH_LABELS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+  import {
+    fetchContributions,
+    toWeeks,
+    monthLabels,
+    cellColor,
+    cellTitle,
+    totalLabel,
+    signature,
+    type Contributions,
+  } from "../scripts/contributions"
 
   const section = document.getElementById("contributions")!
-  const username = section.dataset.username!
+  const hasBuildData = section.dataset.signature !== ""
 
-  // Chop a flat day list into calendar weeks (columns), padding the first
-  // week so the grid always starts on a Sunday row.
-  const toWeeks = (days: Day[]) => {
-    if (!days.length) return []
-    const weeks: (Day | null)[][] = []
-    let current: (Day | null)[] = new Array(new Date(days[0].date).getUTCDay()).fill(null)
-    for (const day of days) {
-      current.push(day)
-      if (current.length === 7) {
-        weeks.push(current)
-        current = []
-      }
-    }
-    if (current.length) weeks.push([...current, ...new Array(7 - current.length).fill(null)])
-    return weeks
-  }
-
-  const formatDate = (date: string) =>
-    new Date(date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })
-
-  const el = (className: string) => {
-    const node = document.createElement("div")
+  const el = (tag: string, className: string) => {
+    const node = document.createElement(tag)
     node.className = className
     return node
   }
 
-  const render = (days: Day[], total: number) => {
-    const weeks = toWeeks(days)
-    const months = section.querySelector("[data-months]")!
-    const grid = section.querySelector("[data-weeks]")!
+  // Mirrors the markup in the template above.
+  const render = (data: Contributions, animate: boolean) => {
+    const weeks = toWeeks(data.days)
 
-    weeks.forEach((week, i) => {
-      const first = week.find(Boolean)
-      const prevFirst = weeks[i - 1]?.find(Boolean)
-      const month = first && new Date(first.date).getUTCMonth()
-      const prevMonth = prevFirst && new Date(prevFirst.date).getUTCMonth()
-
-      const slot = document.createElement("span")
-      slot.className = "flex-1 text-[9px] leading-none text-gray-500 font-pop relative"
-      if (first && (i === 0 || month !== prevMonth)) {
-        const label = document.createElement("span")
-        label.className = "absolute left-0 top-0 whitespace-nowrap"
-        label.textContent = MONTH_LABELS[month as number]
-        slot.append(label)
+    const months = monthLabels(weeks).map((label) => {
+      const slot = el("span", "flex-1 text-[9px] leading-none text-gray-500 font-pop relative")
+      if (label) {
+        const text = el("span", "absolute left-0 top-0 whitespace-nowrap")
+        text.textContent = label
+        slot.append(text)
       }
-      months.append(slot)
+      return slot
+    })
 
-      const column = el("flex-1 flex flex-col gap-[3px]")
+    const columns = weeks.map((week, i) => {
+      const column = el("div", "flex-1 flex flex-col gap-[3px]")
       for (const day of week) {
         if (!day) {
-          column.append(el("w-full aspect-square"))
+          column.append(el("div", "w-full aspect-square"))
           continue
         }
-        const cell = el("contrib-cell contrib-cell-in w-full aspect-square rounded-[2px]")
-        cell.style.backgroundColor = LEVEL_COLORS[day.level] ?? LEVEL_COLORS[0]
-        cell.style.animationDelay = `${Math.min(i * 0.008, 0.5)}s`
-        cell.title = `${day.count} contribution${day.count === 1 ? "" : "s"} on ${formatDate(day.date)}`
+        const cell = el("div", `contrib-cell ${animate ? "contrib-cell-in " : ""}w-full aspect-square rounded-[2px]`)
+        cell.style.backgroundColor = cellColor(day)
+        if (animate) cell.style.animationDelay = `${Math.min(i * 0.008, 0.5)}s`
+        cell.title = cellTitle(day)
         column.append(cell)
       }
-      grid.append(column)
+      return column
     })
 
-    section.querySelector("[data-total]")!.textContent = `${total.toLocaleString()} contributions in the last year`
+    section.querySelector("[data-months]")!.replaceChildren(...months)
+    section.querySelector("[data-weeks]")!.replaceChildren(...columns)
+    section.querySelector("[data-total]")!.textContent = totalLabel(data.total)
+    section.dataset.signature = signature(data)
   }
 
-  fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`)
-    .then((res) => {
-      if (!res.ok) throw new Error(res.statusText)
-      return res.json()
+  fetchContributions()
+    .then((data) => {
+      // Only touch the DOM if there's something newer than the build.
+      if (signature(data) !== section.dataset.signature) render(data, !hasBuildData)
     })
-    .then((json) => render(json.contributions ?? [], json.total?.lastYear ?? 0))
     .catch(() => {
+      // Build-time data is still on screen; only show the error if there's nothing.
+      if (hasBuildData) return
       section.querySelector<HTMLElement>("[data-graph]")!.hidden = true
       section.querySelector<HTMLElement>("[data-error]")!.hidden = false
     })
