@@ -1,0 +1,18 @@
+<div
+  id="cursor"
+  class="hidden md:block fixed left-0 top-0 w-10 h-10 bg-white rounded-full pointer-events-none z-[999] mix-blend-difference"
+  style="transform: translate(-24px, -24px)"
+>
+</div>
+
+<script>
+  const cursor = document.getElementById("cursor")!
+  let frame = 0
+
+  window.addEventListener("mousemove", (e) => {
+    cancelAnimationFrame(frame)
+    frame = requestAnimationFrame(() => {
+      cursor.style.transform = `translate(${e.clientX - 24}px, ${e.clientY - 24}px)`
+    })
+  })
+</script>
