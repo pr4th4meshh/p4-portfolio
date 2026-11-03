@@ -1,0 +1,45 @@
+---
+const greetings = ["Hello", "Bonjour", "Grüezi", "Ciao", "こんにちは", "Hola", "स्वागत है"]
+---
+
+<div
+  id="loading-screen"
+  class="fixed inset-0 bg-primary flex items-center justify-center z-50"
+  data-greetings={JSON.stringify(greetings)}
+>
+  <div class="text-center">
+    <h1 class="text-white text-5xl md:text-7xl font-bold mb-2">
+      ~ <span data-greeting>{greetings[0]}</span>
+    </h1>
+  </div>
+</div>
+
+<style>
+  #loading-screen {
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  #loading-screen.is-exiting {
+    transform: translateX(100%);
+  }
+</style>
+
+<script>
+  const screen = document.getElementById("loading-screen")!
+  const label = screen.querySelector<HTMLElement>("[data-greeting]")!
+  const greetings: string[] = JSON.parse(screen.dataset.greetings!)
+
+  // First greeting lingers, the middle ones flash by, the last one settles.
+  const holdFor = (i: number) => (i === 0 ? 600 : i === greetings.length - 1 ? 500 : 150)
+
+  const step = (i: number) => {
+    label.textContent = greetings[i]
+    setTimeout(() => {
+      if (i < greetings.length - 1) return step(i + 1)
+      document.documentElement.classList.remove("is-loading")
+      screen.classList.add("is-exiting")
+      screen.addEventListener("transitionend", () => screen.remove(), { once: true })
+    }, holdFor(i))
+  }
+
+  step(0)
+</script>
